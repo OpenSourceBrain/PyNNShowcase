@@ -22,6 +22,9 @@ env:
 
 install: 
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+    
+    # Need to pre install NEURON so nrnivmodl can be run targeting mod files in a different directory
+    - omv install NEURON
 
 script:
     - omv all -V
