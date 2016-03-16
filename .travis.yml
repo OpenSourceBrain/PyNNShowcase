@@ -19,12 +19,17 @@ env:
     - OMV_ENGINE=jNeuroML
     - OMV_ENGINE=jNeuroML_NEURON
     - OMV_ENGINE=jNeuroML_validate
+    - OMV_ENGINE=PyNN_NEURON
 
 install: 
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
     
-    # Need to pre install NEURON so nrnivmodl can be run targeting mod files in a different directory
-    - omv install NEURON
+    # Need to pre install NEURON for PyNN_NEURON so nrnivmodl can be run on generated mods 
+    - if [[ ${OMV_ENGINE} == "PyNN_NEURON" ]]; then 
+        omv install NEURON; 
+        cd PyNN;
+        nrnivmodl;
+      fi
 
 script:
     - omv all -V

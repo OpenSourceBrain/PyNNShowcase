@@ -1,0 +1,16 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+ 
+target: LEMS_2007One.py
+engine: PyNN_NEURON
+mep: ../NeuroML2/.test.exIzh.mep
+experiments:
+  v:
+    observables:
+      spike times:
+        file: 
+          path: exIzh.dat
+          columns: [0,1]
+          scaling: [1, 1]
+        spike detection: 
+          method: threshold
+        tolerance: 8.4e-06
