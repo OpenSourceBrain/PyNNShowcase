@@ -28,7 +28,7 @@ install:
     - if [[ ${OMV_ENGINE} == "PyNN_NEURON" ]]; then 
         omv install NEURON; 
         cd PyNN;
-        nrnivmodl;
+        /home/travis/neuron/nrn/x86_64/bin/nrnivmodl;
       fi
 
 script:
