@@ -5,6 +5,7 @@ umac
 *.dll
 *.pyc
 
+PyNN/*.dat
 NeuroML2/*.dat
 
 NeuroML2/*.dat.lems
@@ -12,3 +13,9 @@ NeuroML2/*.hoc
 NeuroML2/*.mod
 NeuroML2/*nrn.py
 /PyNN/exIzh.dat
+/NeuroML2/LEMS_2007One.py
+/NeuroML2/LEMS_2007One.py_main.json
+/NeuroML2/RS.cell.json
+/NeuroML2/RS_Iext.input.json
+/NeuroML2/RS_Iext_inputdefinition.py
+/NeuroML2/RS_celldefinition.py

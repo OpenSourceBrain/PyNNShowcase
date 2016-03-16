@@ -10,6 +10,10 @@ addons:
     - python-scipy 
     - python-matplotlib 
     - python-sympy
+    - python-tables 
+    - libreadline6-dev 
+    - libncurses5-dev 
+    - libgsl0-dev
     
     
 language: python
@@ -20,6 +24,8 @@ env:
     - OMV_ENGINE=jNeuroML_NEURON
     - OMV_ENGINE=jNeuroML_validate
     - OMV_ENGINE=PyNN_NEURON
+    - OMV_ENGINE=PyNN_Nest
+    - OMV_ENGINE=PyNN_Brian1
 
 install: 
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
@@ -29,7 +35,9 @@ install:
         omv install NEURON; 
         cd PyNN;
         /home/travis/neuron/nrn/x86_64/bin/nrnivmodl;
-      fi
+        cd ..;
+        omv list-engines; 
+      fi;
 
 script:
     - omv all -V
