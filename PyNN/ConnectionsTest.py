@@ -22,15 +22,34 @@ sim.setup(timestep=time_step, debug=True)
 
 
 cell_params = {'tau_refrac':5,'v_thresh':-50.0, 'v_reset':-65.0, 'i_offset': 0.9, 'tau_syn_E'  : 2.0, 'tau_syn_I': 5.0}
-pop_pre = sim.Population(10, sim.IF_cond_alpha(**cell_params), label="pop_pre")
+pop_pre = sim.Population(5, sim.IF_cond_alpha(**cell_params), label="pop_pre")
 pop_pre.record('v')
 
-pop_post = sim.Population(10, sim.IF_cond_alpha(**cell_params), label="pop_post")
+pop_post = sim.Population(5, sim.IF_cond_alpha(**cell_params), label="pop_post")
 pop_post.record('v')
 
 
-
+###################################################################
+# Projection less connection
 connE = sim.connect(pop_pre, pop_post, weight=0.01, receptor_type='excitatory', delay=10)
+
+
+###################################################################
+# AllToAllConnector connection
+proj1 = sim.Projection(pop_pre, pop_post, sim.AllToAllConnector(),
+                                    sim.StaticSynapse(weight=0.05, delay=5),label="AllToAllConnectorProj")
+
+###################################################################
+# OneToOneConnector connection
+proj2 = sim.Projection(pop_pre, pop_post, sim.OneToOneConnector(),
+                                    sim.StaticSynapse(weight=0.02, delay=4),label="OneToOneConnector")
+
+###################################################################
+# FixedProbabilityConnector connection
+proj3 = sim.Projection(pop_pre, pop_post, sim.FixedProbabilityConnector(p_connect=0.2),
+                                    sim.StaticSynapse(weight=0.1, delay=1),label="FixedProbabilityConnector")
+                                
+
 
 sim.run(tstop)
 
