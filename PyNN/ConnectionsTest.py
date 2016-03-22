@@ -1,0 +1,94 @@
+"""
+Simple network for testing export to NeuroML v1 & v2
+
+"""
+import logging
+logging.basicConfig(format='%(levelname)s - %(name)s: %(message)s', level=logging.DEBUG)
+
+import sys
+import os
+from importlib import import_module
+import numpy as np
+
+from pyNN.utility import get_script_args
+
+simulator_name = get_script_args(1)[0]  
+sim = import_module("pyNN.%s" % simulator_name)
+
+tstop = 500.0
+time_step = 0.005
+
+sim.setup(timestep=time_step, debug=True)
+
+
+cell_params = {'tau_refrac':5,'v_thresh':-50.0, 'v_reset':-65.0, 'i_offset': 0.9, 'tau_syn_E'  : 2.0, 'tau_syn_I': 5.0}
+pop_pre = sim.Population(10, sim.IF_cond_alpha(**cell_params), label="pop_pre")
+pop_pre.record('v')
+
+pop_post = sim.Population(10, sim.IF_cond_alpha(**cell_params), label="pop_post")
+pop_post.record('v')
+
+
+
+connE = sim.connect(pop_pre, pop_post, weight=0.01, receptor_type='excitatory', delay=10)
+
+sim.run(tstop)
+
+use_hdf5 = False
+
+if use_hdf5:
+    from neo.io import NeoHdf5IO as NeoIO
+    suffix = 'h5'
+
+    results_file = "Results/ConnectionTest_%s.%s" % (simulator_name, suffix)
+    if os.path.exists(results_file):
+        os.remove(results_file)
+    io = NeoIO(results_file)
+    pop_IF_curr_alpha.write_data(io)
+    pop_IF_curr_exp.write_data(io)
+    pop_IF_cond_alpha.write_data(io)
+    pop_IF_cond_exp.write_data(io)
+    pop_EIF_cond_exp_isfa_ista.write_data(io)
+    pop_HH_cond_exp.write_data(io)
+    pop_post1.write_data(io)
+    pop_post2.write_data(io)
+
+else:
+    #from neo.io import AsciiSignalIO as NeoIO
+    #suffix = 'txt'
+    #results_file = "Results/NeuroMLTest_%s.%s" % (simulator_name, suffix)
+
+    for pop in [pop_pre, pop_post]:
+        data =  pop.get_data('v', gather=False)
+        filename = "%s_v.dat"%(pop.label)
+        print("Writing data for %s"%pop)
+        for segment in data.segments :
+            vm = segment.analogsignalarrays[0].transpose()[0]
+            tt = np.array([t*time_step/1000. for t in range(len(vm))])
+            times_vm = np.array([tt, vm/1000.]).transpose()
+            np.savetxt(filename, times_vm , delimiter = '\t', fmt='%s')
+
+
+sim.end()
+
+if '-gui' in sys.argv:
+    if simulator_name in ['neuron', 'nest', 'brian']:
+        import matplotlib.pyplot as plt
+        
+        print("Plotting results of simulation in %s"%simulator_name)
+
+        plt.figure("Voltages for IaF cells")
+        for pop in [pop_pre, pop_post]:
+            data = pop.get_data()
+            vm = data.segments[0].analogsignalarrays[0]
+            plt.plot(vm, '-', label='%s: v'%pop.label)
+            
+        plt.legend()
+        
+
+
+
+        plt.show()
+
+
+
