@@ -32,8 +32,7 @@ class RS_Iext(object):
         self.parameters = parameters
 
     def inject_into(self, cells):
-        print("Injecting into: %s"%cells)
+        print("Injecting RS_Iext into: %s"%cells)
         for id in cells:
-            print("Injecting into: %s"%id)
             self.all_inputs[id] = h.RS_Iext(0.5, sec=id._cell.source_section)
-            h('forall psection()')
+            #h('forall psection()')
