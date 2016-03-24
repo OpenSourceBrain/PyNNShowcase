@@ -18,6 +18,7 @@ Components:
 
 from pyNN.utility import get_simulator, init_logging
 import numpy as np
+import time
 
 sim, options = get_simulator(("--plot-figure", "Plot the simulation results to a file.", {"action": "store_true"}),
                              ("--debug", "Print debugging information"))
@@ -43,11 +44,16 @@ cell_params_RS = {
      'C':1.00000005E-4, 
 } 
 
+#Populations
 
 # Population: RS_pop, size: 1, component: RS
 from RS_celldefinition import RSType
 #from RS_celldefinition import RS
 RS_pop = sim.Population(1, RSType(**cell_params_RS), label="pop_RS_pop")
+
+
+
+#Projections
 
 
 # Inputs...
@@ -57,7 +63,8 @@ RS_Iext0_RS_pop_0 = RS_Iext(  delay=0.0,  duration=520.0,  amplitude=0.1,  )
 RS_Iext0_RS_pop_0.inject_into([RS_pop[0]])
 
 
-print("Running a PyNN based simulation in %s for %sms (dt: %sms)"%(options.simulator.upper(), sim.tstop, sim.get_time_step()))
+sim_start = time.time()
+print("Running a PyNN based simulation in %s for %sms (dt: %sms) on node %i"%(options.simulator.upper(), sim.tstop, sim.get_time_step(), sim.rank()))
 
 
 # Display: d1
@@ -68,8 +75,11 @@ RS_pop.record('soma(0.5).v')
 # Column: v: Pop: RS_pop; cell: 0; value: v
 RS_pop.record('soma(0.5).v')
 
-
 sim.run(sim.tstop)
+
+sim_end = time.time()
+sim_time = sim_end - sim_start
+print("Finished simulation in %f seconds (%f mins)"%(sim_time, sim_time/60.0))
 
 print("Saving to file: exIzh.dat (ref: of0)")
  
@@ -81,6 +91,10 @@ segment =  RS_pop.get_data().segments[0]
 of0_v_v = [next((x for x in segment.analogsignalarrays if x.name == 'soma(0.5).v'), None).T[0]]
 of0_data = np.concatenate((of0_data, of0_v_v))
 np.savetxt('exIzh.dat', of0_data.T, delimiter='\t',fmt='%s')
+
+save_end = time.time()
+save_time = save_end - sim_end
+print("Saved all data in %f seconds (%f mins)"%(save_time, save_time/60.0))
 
 if options.plot_figure:
     import matplotlib.pyplot as plt

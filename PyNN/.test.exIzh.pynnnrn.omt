@@ -1,6 +1,6 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
  
-target: LEMS_2007One.py
+target: LEMS_2007One_pynn.py
 engine: PyNN_NEURON
 mep: ../NeuroML2/.test.exIzh.mep
 experiments:
