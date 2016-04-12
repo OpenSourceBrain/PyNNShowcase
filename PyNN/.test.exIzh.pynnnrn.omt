@@ -10,7 +10,7 @@ experiments:
         file: 
           path: exIzh.dat
           columns: [0,1]
-          scaling: [1, 1]
+          scaling: [1000, 1000]
         spike detection: 
           method: threshold
-        tolerance: 8.4e-06
+        tolerance: 1e-5
