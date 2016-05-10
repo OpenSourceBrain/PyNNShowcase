@@ -19,3 +19,5 @@ NeuroML2/*nrn.py
 /NeuroML2/RS_Iext.input.json
 /NeuroML2/RS_Iext_inputdefinition.py
 /NeuroML2/RS_celldefinition.py
+/NeuroML2/LEMS_2007One_pynn.py
+/NeuroML2/LEMS_2007One_pynn.py_main.json

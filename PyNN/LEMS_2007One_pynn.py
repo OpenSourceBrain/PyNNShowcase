@@ -25,12 +25,14 @@ if not 'neuron' in sys.argv and not 'nest' in sys.argv and not 'brian' in sys.ar
     sys.argv.append('neuron')
 
 if 'nrniv' in sys.argv:
-    sys.argv.remove('nrniv')
+    sys.argv.remove('nrniv')  # Might be there if run by nrniv -python
+if '-python' in sys.argv:
+    sys.argv.remove('-python')  # Might be there if run by nrniv -python
+if '-mpi' in sys.argv:
+    sys.argv.remove('-mpi')  # Might be there if run by nrniv -python
 
 sim, options = get_simulator(("--plot-figure", "Plot the simulation results to a file.", {"action": "store_true"}),
-                             ("--debug", "Print debugging information"),
-                             ("-python", "For testing parallel Neuron, may be removed...", {"action": "store_true"}),
-                             ("-mpi", "For testing parallel Neuron, may be removed...", {"action": "store_false"}))
+                             ("--debug", "Print debugging information"))
 
 if options.debug:
     init_logging(None, debug=True)

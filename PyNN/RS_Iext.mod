@@ -57,11 +57,11 @@ INITIAL {
 BREAKPOINT {
     
     rates()
-    if (t <=  delay) {
+    if (t <  delay) {
         i = 0 ? standard OnCondition
     }
     
-    if (t >=  delay  && t <=  duration  +  delay) {
+    if (t >=  delay  && t <  duration  +  delay) {
         i = amplitude ? standard OnCondition
     }
     
