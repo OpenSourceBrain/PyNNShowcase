@@ -21,3 +21,7 @@ NeuroML2/*nrn.py
 /NeuroML2/RS_celldefinition.py
 /NeuroML2/LEMS_2007One_pynn.py
 /NeuroML2/LEMS_2007One_pynn.py_main.json
+/PyNN/Positions.nml.h5
+/PyNN/Positions.png
+/PyNN/Positions.pov
+/PyNN/PyNN_NeuroML2_Export.svg
