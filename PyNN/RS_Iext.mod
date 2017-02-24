@@ -12,6 +12,7 @@ ENDCOMMENT
 NEURON {
     POINT_PROCESS RS_Iext
     ELECTRODE_CURRENT i
+    RANGE weight                            : property
     RANGE delay                             : parameter
     RANGE duration                          : parameter
     RANGE amplitude                         : parameter
@@ -38,6 +39,7 @@ UNITS {
 
 PARAMETER {
     
+    weight = 1
     delay = 0 (ms)
     duration = 520 (ms)
     amplitude = 0.1 (nA)
@@ -62,7 +64,7 @@ BREAKPOINT {
     }
     
     if (t >=  delay  && t <  duration  +  delay) {
-        i = amplitude ? standard OnCondition
+        i = weight  *  amplitude ? standard OnCondition
     }
     
     if (t >=  duration  +  delay) {
