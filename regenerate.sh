@@ -27,9 +27,9 @@ rm -rf *.xml *.nml
 
 
 #------------------------------------
-# Convert NeuroMLTest_PyNN0.8.py
+# Convert NeuroMLTest_PyNN0.9.py
 
-python NeuroMLTest_PyNN0.8.py neuroml
+python NeuroMLTest_PyNN0.9.py neuroml
 mv *.xml *.nml ../NeuroML2
 
 #------------------------------------

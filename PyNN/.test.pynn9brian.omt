@@ -1,6 +1,6 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
  
-target: NeuroMLTest_PyNN0.8.py 
+target: NeuroMLTest_PyNN0.9.py 
 engine: PyNN_Brian1
 mep: .test.mep
 experiments:

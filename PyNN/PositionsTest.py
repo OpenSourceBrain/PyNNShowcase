@@ -50,7 +50,7 @@ for pop in [pop_pre, pop_post]:
     filename = "%s_v.dat"%(pop.label)
     print("Writing data for %s"%pop)
     for segment in data.segments :
-        vm = segment.analogsignalarrays[0].transpose()[0]
+        vm = segment.analogsignals[0].transpose()[0]
         tt = np.array([t*time_step/1000. for t in range(len(vm))])
         times_vm = np.array([tt, vm/1000.]).transpose()
         np.savetxt(filename, times_vm , delimiter = '\t', fmt='%s')
@@ -67,7 +67,7 @@ if '-gui' in sys.argv:
         plt.figure("Voltages for IaF cells")
         for pop in [pop_pre, pop_post]:
             data = pop.get_data()
-            vm = data.segments[0].analogsignalarrays[0]
+            vm = data.segments[0].analogsignals[0]
             plt.plot(vm, '-', label='%s: v'%pop.label)
             
         plt.legend()

@@ -119,7 +119,7 @@ if sim.rank() == 0:
     of0_data = np.array([t])
     # Column: v: Pop: RS_pop; cell: 0; value: v
     RS_pop_segment =  RS_pop.get_data().segments[0]
-    RS_pop_v_data = next((x for x in RS_pop_segment.analogsignalarrays if x.name == 'soma(0.5).v'), None)
+    RS_pop_v_data = next((x for x in RS_pop_segment.analogsignals if x.name == 'soma(0.5).v'), None)
     of0_v_v = [RS_pop_v_data.T[0].simplified] # 'simplified' converts to SI units
     of0_data = np.concatenate((of0_data, of0_v_v))
     np.savetxt('exIzh.dat', of0_data.T, delimiter='\t',fmt='%s')
@@ -143,7 +143,7 @@ if options.plot_figure:
 
     # Line: RS v: Pop: RS_pop; cell: 0; value: v
     segment =  RS_pop.get_data().segments[0]
-    vm = next((x for x in segment.analogsignalarrays if x.name == 'soma(0.5).v'), None).T[0]
+    vm = next((x for x in segment.analogsignals if x.name == 'soma(0.5).v'), None).T[0]
     if not mp in ylabel: ylabel += mp
     ts = [i*sim.get_time_step() for i in xrange(len(vm))]
     plt.plot(ts, vm, '-', label='RS v')
