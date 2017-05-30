@@ -114,6 +114,8 @@ NET_RECEIVE(flag) {
     
         v = c
     
+        vI = 0 : Setting rate of change of v to 0
+    
         u = u  +  d
     }
     if (flag == 1) { : Set initial states
