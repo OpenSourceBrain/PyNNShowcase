@@ -165,7 +165,7 @@ class RS(object):
 
 class RSType(NativeCellType):
 
-    default_parameters = { 'v0':-60.0,  'k':7.0E-4,  'vr':-60.0,  'vt':-40.0,  'vpeak':35.0,  'a':0.030000001,  'b':-0.0019999999,  'c':-50.0,  'd':0.1,  'C':1.00000005E-4, }
+    default_parameters = { 'v0':-60.0,  'k':7.0E-4,  'vr':-60.0,  'vt':-40.0,  'vpeak':35.0,  'a':0.030000001,  'b':-0.002,  'c':-50.0,  'd':0.1,  'C':1.0E-4, }
     default_initial_values = {}    
     recordable = [ 'soma(0.5).v',  'soma(0.5).u', ]
     units = {'soma(0.5).v' : 'mV'}
