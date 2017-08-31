@@ -33,6 +33,7 @@ env:
 
 install: 
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+    - pip install scipy # Why is this needed? Doesn't seem to get installed correctly on trusty with addons above...
     
     # Need to pre install NEURON for PyNN_NEURON so nrnivmodl can be run on generated mods 
     - if [[ ${OMV_ENGINE} == "PyNN_NEURON" ]]; then 
