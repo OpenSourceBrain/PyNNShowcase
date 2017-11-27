@@ -1,5 +1,5 @@
 """
-Simple network for testing export to NeuroML v1 & v2
+Simple network for testing export to NeuroML v2
 
 """
 import logging
