@@ -17,7 +17,7 @@ sim = import_module("pyNN.%s" % simulator_name)
 tstop = 500.0
 time_step = 0.005
 
-sim.setup(timestep=time_step, debug=True,reference="Inputs",save_format='hdf5')
+sim.setup(timestep=time_step, debug=True,reference="Inputs",save_format='xml')
 
 pop_size = 2
 
@@ -39,7 +39,6 @@ all_pops.append(pop_post)'''
 
 
 sim.run(tstop)
-
 
 
 for pop in all_pops:
