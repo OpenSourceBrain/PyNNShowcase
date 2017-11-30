@@ -27,3 +27,9 @@ NeuroML2/*nrn.py
 /PyNN/Positions.pov
 /PyNN/PyNN_NeuroML2_Export.svg
 /PyNN/*.spikes
+/PyNN/Positions.net.nml.h5
+/PyNN/Inputs.net.nml
+/PyNN/LEMS_Sim_Inputs.xml
+/PyNN/PyNN_NeuroML2_Export.net.nml
+/PyNN/LEMS_Sim_Positions.xml
+/PyNN/LEMS_Sim_PyNN_NeuroML2_Export.xml
