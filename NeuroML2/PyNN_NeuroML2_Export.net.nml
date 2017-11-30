@@ -2,8 +2,8 @@
     <notes>
     This NeuroML 2 file has been generated from: 
         PyNN v0.9.1
-        libNeuroML v0.2.33
-        pyNeuroML v0.3.1
+        libNeuroML v0.2.34
+        pyNeuroML v0.3.5
     </notes>
     <IF_curr_alpha id="IF_curr_alpha_pop_IF_curr_alpha" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="10." v_reset="-62." v_rest="-65." v_thresh="-52."/>
     <IF_curr_exp id="IF_curr_exp_pop_IF_curr_exp" cm="1." i_offset="1." tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="8." v_reset="-70." v_rest="-65." v_thresh="-50."/>
