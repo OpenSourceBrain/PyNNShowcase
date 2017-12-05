@@ -19,7 +19,7 @@ time_step = 0.005
 
 sim.setup(timestep=time_step, debug=True,reference="Inputs",save_format='xml')
 
-pop_size = 2
+pop_size = 4
 
 cell_params = {'tau_refrac':5,'v_thresh':-50.0, 'v_reset':-65.0, 'i_offset': 0.1, 'tau_syn_E'  : 2.0, 'tau_syn_I': 5.0}
 
@@ -28,15 +28,21 @@ pop_pre = sim.Population(pop_size, sim.IF_cond_alpha(**cell_params), label="pop_
 pop_pre.record('v')
 all_pops.append(pop_pre)
 
-pulse = sim.DCSource(amplitude=0.9, start=100, stop=300.0)
-#pulse.inject_into(pop_pre)
-pop_pre[0].inject(pulse)
+dcs = sim.DCSource(amplitude=0.9, start=50, stop=400.0)
+pop_pre[0].inject(dcs)
 
-'''
-pop_post = sim.Population(pop_size, sim.IF_cond_alpha(**cell_params), label="pop_post",structure=struct)
-pop_post.record('v')
-all_pops.append(pop_post)'''
+acs = sim.ACSource(start=50.0, stop=450.0, amplitude=1.0, offset=1.0,
+                   frequency=10.0, phase=180.0)
+pop_pre[1].inject(acs)
 
+scs = sim.StepCurrentSource(times=[50.0, 110.0, 350.0, 410.0],
+                        amplitudes=[0.4, 0.9, -0.2, 0.2])
+pop_pre[2].inject(scs)
+
+#noise = sim.NoisyCurrentSource(mean=0.9, stdev=1.0, start=50.0, stop=450.0, dt=1.0)
+#pop_pre[3].inject(noise)
+                        
+    
 
 sim.run(tstop)
 
