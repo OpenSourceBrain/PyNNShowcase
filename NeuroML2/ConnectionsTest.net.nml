@@ -14,37 +14,41 @@
     <alphaCondSynapse id="syn__AllToAllConnectorProjSelection" tau_syn="2." e_rev="0."/>
     <network id="ConnectionsTest">
         <population id="pop_pre" component="IF_cond_alpha_pop_pre" size="5" type="populationList">
+            <property tag="radius" value="5"/>
+            <property tag="color" value="0 0.6 0"/>
             <instance id="0">
-                <location x="0." y="0." z="0."/>
+                <location x="3.977600062660147" y="-44.612398370894766" z="67.33204177827885"/>
             </instance>
             <instance id="1">
-                <location x="1." y="0." z="0."/>
+                <location x="24.217250917424948" y="-22.84815800084683" z="1.059454154289696"/>
             </instance>
             <instance id="2">
-                <location x="2." y="0." z="0."/>
+                <location x="1.11879185321222" y="4.943410638089407" z="87.503587155366262"/>
             </instance>
             <instance id="3">
-                <location x="3." y="0." z="0."/>
+                <location x="-15.7218135735693" y="-20.382862575746863" z="16.616840080824424"/>
             </instance>
             <instance id="4">
-                <location x="4." y="0." z="0."/>
+                <location x="-6.584218783771889" y="37.043210221668879" z="-51.269921014760598"/>
             </instance>
         </population>
         <population id="pop_post" component="IF_cond_alpha_pop_post" size="5" type="populationList">
+            <property tag="radius" value="5"/>
+            <property tag="color" value="0 0.2 0.6"/>
             <instance id="0">
-                <location x="0." y="0." z="0."/>
+                <location x="-38.596212107867053" y="118.357950770311106" z="26.328593492461927"/>
             </instance>
             <instance id="1">
-                <location x="1." y="0." z="0."/>
+                <location x="23.739767038248118" y="170.520153910833784" z="54.444245873141874"/>
             </instance>
             <instance id="2">
-                <location x="2." y="0." z="0."/>
+                <location x="-18.402577637638352" y="137.033650037793194" z="-60.694265286138084"/>
             </instance>
             <instance id="3">
-                <location x="3." y="0." z="0."/>
+                <location x="83.242708854953534" y="188.574353284169803" z="-15.520611932139804"/>
             </instance>
             <instance id="4">
-                <location x="4." y="0." z="0."/>
+                <location x="-19.161573308610148" y="186.699985201960885" z="-20.144133140518882"/>
             </instance>
         </population>
         <projection id="pop_pre__TO__pop_post" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__pop_pre__TO__pop_post">

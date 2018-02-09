@@ -11,6 +11,7 @@ from importlib import import_module
 import numpy as np
 
 from pyNN.utility import get_script_args
+import pyNN.space as space
 
 simulator_name = get_script_args(1)[0]  
 sim = import_module("pyNN.%s" % simulator_name)
@@ -21,12 +22,21 @@ time_step = 0.005
 sim.setup(timestep=time_step, debug=True, reference='ConnectionsTest')
 
 
-cell_params = {'tau_refrac':5,'v_thresh':-50.0, 'v_reset':-65.0, 'i_offset': 0.9, 'tau_syn_E'  : 2.0, 'tau_syn_I': 5.0}
-pop_pre = sim.Population(5, sim.IF_cond_alpha(**cell_params), label="pop_pre")
-pop_pre.record('v')
+sphere1 = space.Sphere(radius=100.0)
+struct1 = space.RandomStructure(sphere1, origin=(0.0, 0.0, 0.0))
 
-pop_post = sim.Population(5, sim.IF_cond_alpha(**cell_params), label="pop_post")
+cell_params = {'tau_refrac':5,'v_thresh':-50.0, 'v_reset':-65.0, 'i_offset': 0.9, 'tau_syn_E'  : 2.0, 'tau_syn_I': 5.0}
+pop_pre = sim.Population(5, sim.IF_cond_alpha(**cell_params), label="pop_pre",structure=struct1)
+pop_pre.record('v')
+pop_pre.annotate(radius=5)
+pop_pre.annotate(color='0 0.6 0')
+
+sphere2 = space.Sphere(radius=100.0)
+struct2 = space.RandomStructure(sphere2, origin=(0.0, 200.0, 0.0))
+pop_post = sim.Population(5, sim.IF_cond_alpha(**cell_params), label="pop_post",structure=struct2)
 pop_post.record('v')
+pop_post.annotate(radius=5)
+pop_post.annotate(color='0 0.2 0.6')
 
 pre_selection = sim.PopulationView(pop_pre, np.array([1,3]),label='pre_selection')
 print("Creating view:  %s"%pre_selection)

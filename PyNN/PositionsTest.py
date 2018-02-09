@@ -30,12 +30,16 @@ struct = space.RandomStructure(sphere, origin=(0.0, 100.0, 0.0))
 
 pop_pre = sim.Population(pop_size, sim.IF_cond_alpha(**cell_params), label="pop_pre",structure=struct)
 pop_pre.record('v')
+pop_pre.annotate(radius=5)
+pop_pre.annotate(color='0 0.6 0')
 
 cuboid = space.Cuboid(30,40,50)
 struct = space.RandomStructure(cuboid, origin=(-200.0, 0.0, -200.0))
 
 pop_post = sim.Population(pop_size, sim.IF_cond_alpha(**cell_params), label="pop_post",structure=struct)
 pop_post.record('v')
+pop_post.annotate(radius=5)
+pop_post.annotate(color='0.2 0.2 1')
 
 
 

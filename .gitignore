@@ -34,3 +34,5 @@ NeuroML2/*nrn.py
 /PyNN/LEMS_Sim_Positions.xml
 /PyNN/LEMS_Sim_PyNN_NeuroML2_Export.xml
 /PyNN/LEMS_Sim_ConnectionsTest.xml
+/NeuroML2/*.png
+/NeuroML2/*.pov
