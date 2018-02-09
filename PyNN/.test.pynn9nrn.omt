@@ -26,6 +26,17 @@ experiments:
           method: threshold
           threshold: -45
         tolerance: 0.00
+  EIF_cond_alpha_isfa_ista:
+    observables:
+      spike times:
+        file: 
+          path: pop_EIF_cond_alpha_isfa_ista_v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -40
+        tolerance: 0.000
   pop_post2:
     observables:
       spike times:

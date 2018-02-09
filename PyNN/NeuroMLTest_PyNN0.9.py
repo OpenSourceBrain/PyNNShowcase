@@ -49,6 +49,11 @@ pop_EIF_cond_exp_isfa_ista = sim.Population(1, sim.EIF_cond_exp_isfa_ista(**cell
 pop_EIF_cond_exp_isfa_ista.record('v')
 pop_EIF_cond_exp_isfa_ista.record('spikes')
 
+cell_params5a = {'tau_refrac': 2.0, 'a': 0, 'tau_m': 16.8, 'e_rev_E': 0.0, 'i_offset': 0.15, 'cm': 0.12, 'delta_T': 2, 'e_rev_I': -75.0, 'v_thresh': -50.0, 'b': 0, 'tau_syn_E': 1.0, 'v_reset': -60.0, 'v_spike': 0.0, 'tau_syn_I': 1.0, 'tau_w': 144.0, 'v_rest': -70.0}
+pop_EIF_cond_alpha_isfa_ista = sim.Population(1, sim.EIF_cond_alpha_isfa_ista(**cell_params5a), label="pop_EIF_cond_alpha_isfa_ista")
+pop_EIF_cond_alpha_isfa_ista.record('v')
+pop_EIF_cond_alpha_isfa_ista.record('spikes')
+
 
 cell_params6 = {'i_offset': 0.2, 'gbar_K':6.0, 'gbar_Na':20.0}
 pop_HH_cond_exp = sim.Population(1, sim.HH_cond_exp(**cell_params6), label="pop_HH_cond_exp")
@@ -85,6 +90,7 @@ if use_hdf5:
     pop_IF_cond_alpha.write_data(io)
     pop_IF_cond_exp.write_data(io)
     pop_EIF_cond_exp_isfa_ista.write_data(io)
+    pop_EIF_cond_alpha_isfa_ista.write_data(io)
     pop_HH_cond_exp.write_data(io)
     pop_post1.write_data(io)
     pop_post2.write_data(io)
@@ -94,7 +100,7 @@ else:
     #suffix = 'txt'
     #results_file = "Results/NeuroMLTest_%s.%s" % (simulator_name, suffix)
 
-    for pop in [pop_IF_curr_alpha, pop_IF_curr_exp, pop_IF_cond_exp, pop_IF_cond_alpha,pop_EIF_cond_exp_isfa_ista, pop_HH_cond_exp, pop_post1,pop_post2]:
+    for pop in [pop_IF_curr_alpha, pop_IF_curr_exp, pop_IF_cond_exp, pop_IF_cond_alpha,pop_EIF_cond_exp_isfa_ista,pop_EIF_cond_alpha_isfa_ista, pop_HH_cond_exp, pop_post1,pop_post2]:
         data =  pop.get_data('v', gather=False)
         filename = "%s_v.dat"%(pop.label)
         print("Writing data for %s"%pop)
@@ -124,15 +130,17 @@ if '-gui' in sys.argv:
         for pop in [pop_IF_curr_alpha, pop_IF_curr_exp, pop_IF_cond_exp, pop_IF_cond_alpha]:
             data = pop.get_data()
             vm = data.segments[0].analogsignals[0]
-            plt.plot(vm, '-', label='%s: v'%pop.label)
+            ts = [t*time_step/1000. for t in range(len(vm))]
+            plt.plot(ts, vm,'-', label='%s: v'%pop.label)
             
         plt.legend()
         
         plt.figure("Voltages for EIF & HH cells")
-        for pop in [pop_EIF_cond_exp_isfa_ista, pop_HH_cond_exp]:
+        for pop in [pop_EIF_cond_exp_isfa_ista, pop_EIF_cond_alpha_isfa_ista, pop_HH_cond_exp]:
             data = pop.get_data()
             vm = data.segments[0].analogsignals[0]
-            plt.plot(vm, '-', label='%s: v'%pop.label)
+            ts = [t*time_step/1000. for t in range(len(vm))]
+            plt.plot(ts, vm, '-', label='%s: v'%pop.label)
 
         plt.legend()
 
@@ -140,7 +148,8 @@ if '-gui' in sys.argv:
         for pop in [pop_post1, pop_post2]:
             data = pop.get_data()
             vm = data.segments[0].analogsignals[1]
-            plt.plot(vm, '-', label='%s: v'%pop.label)
+            ts = [t*time_step/1000. for t in range(len(vm))]
+            plt.plot(ts, vm, '-', label='%s: v'%pop.label)
             
         plt.legend()
 
@@ -148,7 +157,8 @@ if '-gui' in sys.argv:
         for pop in [pop_post1, pop_post2]:
             data = pop.get_data()
             gsyn = data.segments[0].analogsignals[0]
-            plt.plot(gsyn, '-', label='%s: gsyn'%pop.label)
+            ts = [t*time_step/1000. for t in range(len(gsyn))]
+            plt.plot(ts, gsyn, '-', label='%s: gsyn'%pop.label)
             
         plt.legend()
 
