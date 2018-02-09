@@ -3,8 +3,8 @@
     <!-- 
     This LEMS file has been generated from: 
         PyNN v0.9.1
-        libNeuroML v0.2.34
-        pyNeuroML v0.3.5
+        libNeuroML v0.2.37
+        pyNeuroML v0.3.8
      -->
     
     <!-- Specify which component to run -->
@@ -18,38 +18,38 @@
     <Include file="PyNN.xml"/>
     <Include file="PyNN_NeuroML2_Export.net.nml"/>
    
-    <Simulation id="Sim_PyNN_NeuroML2_Export" length="500.0ms" step="0.005ms" target="network" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="Sim_PyNN_NeuroML2_Export" length="500.0ms" step="0.005ms" target="PyNN_NeuroML2_Export" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
         
         <Display id="pop_IF_curr_alpha_v" title="pop_IF_curr_alpha v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
-            <Line id="pop_IF_curr_alpha v: cell 42" quantity="pop_IF_curr_alpha/0/IF_curr_alpha_pop_IF_curr_alpha/v" scale="1mV" color="#aad39d" timeScale="1ms"/>
+            <Line id="pop_IF_curr_alpha v: cell 42" quantity="pop_IF_curr_alpha/0/IF_curr_alpha_pop_IF_curr_alpha/v" scale="1mV" color="#5de7cc" timeScale="1ms"/>
         </Display>
         
         <Display id="pop_IF_curr_exp_v" title="pop_IF_curr_exp v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
-            <Line id="pop_IF_curr_exp v: cell 43" quantity="pop_IF_curr_exp/0/IF_curr_exp_pop_IF_curr_exp/v" scale="1mV" color="#f10f38" timeScale="1ms"/>
+            <Line id="pop_IF_curr_exp v: cell 43" quantity="pop_IF_curr_exp/0/IF_curr_exp_pop_IF_curr_exp/v" scale="1mV" color="#be1421" timeScale="1ms"/>
         </Display>
         
         <Display id="pop_IF_cond_alpha_v" title="pop_IF_cond_alpha v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
-            <Line id="pop_IF_cond_alpha v: cell 44" quantity="pop_IF_cond_alpha/0/IF_cond_alpha_pop_IF_cond_alpha/v" scale="1mV" color="#8230f8" timeScale="1ms"/>
+            <Line id="pop_IF_cond_alpha v: cell 44" quantity="pop_IF_cond_alpha/0/IF_cond_alpha_pop_IF_cond_alpha/v" scale="1mV" color="#c0b50a" timeScale="1ms"/>
         </Display>
         
         <Display id="pop_IF_cond_exp_v" title="pop_IF_cond_exp v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
-            <Line id="pop_IF_cond_exp v: cell 45" quantity="pop_IF_cond_exp/0/IF_cond_exp_pop_IF_cond_exp/v" scale="1mV" color="#01132d" timeScale="1ms"/>
+            <Line id="pop_IF_cond_exp v: cell 45" quantity="pop_IF_cond_exp/0/IF_cond_exp_pop_IF_cond_exp/v" scale="1mV" color="#e5847d" timeScale="1ms"/>
         </Display>
         
         <Display id="pop_EIF_cond_exp_isfa_ista_v" title="pop_EIF_cond_exp_isfa_ista v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
-            <Line id="pop_EIF_cond_exp_isfa_ista v: cell 46" quantity="pop_EIF_cond_exp_isfa_ista/0/EIF_cond_exp_isfa_ista_pop_EIF_cond_exp_isfa_ista/v" scale="1mV" color="#533af9" timeScale="1ms"/>
+            <Line id="pop_EIF_cond_exp_isfa_ista v: cell 46" quantity="pop_EIF_cond_exp_isfa_ista/0/EIF_cond_exp_isfa_ista_pop_EIF_cond_exp_isfa_ista/v" scale="1mV" color="#57ba28" timeScale="1ms"/>
         </Display>
         
         <Display id="pop_HH_cond_exp_v" title="pop_HH_cond_exp v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
-            <Line id="pop_HH_cond_exp v: cell 47" quantity="pop_HH_cond_exp/0/HH_cond_exp_pop_HH_cond_exp/v" scale="1mV" color="#bb0fd3" timeScale="1ms"/>
+            <Line id="pop_HH_cond_exp v: cell 47" quantity="pop_HH_cond_exp/0/HH_cond_exp_pop_HH_cond_exp/v" scale="1mV" color="#67e297" timeScale="1ms"/>
         </Display>
         
         <Display id="pop_post1_v" title="pop_post1 v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
-            <Line id="pop_post1 v: cell 48" quantity="pop_post1/0/IF_cond_exp_pop_post1/v" scale="1mV" color="#085555" timeScale="1ms"/>
+            <Line id="pop_post1 v: cell 48" quantity="pop_post1/0/IF_cond_exp_pop_post1/v" scale="1mV" color="#c00f98" timeScale="1ms"/>
         </Display>
         
         <Display id="pop_post2_v" title="pop_post2 v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
-            <Line id="pop_post2 v: cell 49" quantity="pop_post2/0/IF_cond_alpha_pop_post2/v" scale="1mV" color="#95395c" timeScale="1ms"/>
+            <Line id="pop_post2 v: cell 49" quantity="pop_post2/0/IF_cond_alpha_pop_post2/v" scale="1mV" color="#451edc" timeScale="1ms"/>
         </Display>
         
         <OutputFile id="OF_pop_IF_curr_alpha_v" fileName="pop_IF_curr_alpha_v.dat">
