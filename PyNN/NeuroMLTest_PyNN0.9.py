@@ -18,6 +18,8 @@ sim = import_module("pyNN.%s" % simulator_name)
 
 tstop = 500.0
 time_step = 0.005
+import random
+random.seed(1234) # To ensure LEMS file colors are same...
 
 sim.setup(timestep=time_step, debug=True)
     

@@ -18,7 +18,7 @@ sim = import_module("pyNN.%s" % simulator_name)
 tstop = 500.0
 time_step = 0.005
 
-sim.setup(timestep=time_step, debug=True)
+sim.setup(timestep=time_step, debug=True, reference='ConnectionsTest')
 
 
 cell_params = {'tau_refrac':5,'v_thresh':-50.0, 'v_reset':-65.0, 'i_offset': 0.9, 'tau_syn_E'  : 2.0, 'tau_syn_I': 5.0}
@@ -28,6 +28,10 @@ pop_pre.record('v')
 pop_post = sim.Population(5, sim.IF_cond_alpha(**cell_params), label="pop_post")
 pop_post.record('v')
 
+pre_selection = sim.PopulationView(pop_pre, np.array([1,3]),label='pre_selection')
+print("Creating view:  %s"%pre_selection)
+post_selection = sim.PopulationView(pop_post, np.array([0,2,4]),label='post_selection')
+print("Creating view:  %s"%post_selection)
 
 ###################################################################
 # Projection less connection
@@ -50,6 +54,10 @@ proj3 = sim.Projection(pop_pre, pop_post, sim.FixedProbabilityConnector(p_connec
                                     sim.StaticSynapse(weight=0.1, delay=1),label="FixedProbabilityConnector")
                                 
 
+###################################################################
+# AllToAllConnector between pre_selection & post_selection
+proj1 = sim.Projection(pre_selection, post_selection, sim.AllToAllConnector(),
+                                    sim.StaticSynapse(weight=0.05, delay=5),label="AllToAllConnectorProjSelection")
 
 sim.run(tstop)
 

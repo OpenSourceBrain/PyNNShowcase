@@ -1,0 +1,128 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="ConnectionsTest">
+    <notes>
+    This NeuroML 2 file has been generated from: 
+        PyNN v0.9.2
+        libNeuroML v0.2.37
+        pyNeuroML v0.3.8
+    </notes>
+    <IF_cond_alpha id="IF_cond_alpha_pop_pre" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="5." v_reset="-65." v_rest="-65." v_thresh="-50." e_rev_E="0." e_rev_I="-70."/>
+    <IF_cond_alpha id="IF_cond_alpha_pop_post" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="5." v_reset="-65." v_rest="-65." v_thresh="-50." e_rev_E="0." e_rev_I="-70."/>
+    <alphaCondSynapse id="syn__pop_pre__TO__pop_post" tau_syn="2." e_rev="0."/>
+    <alphaCondSynapse id="syn__AllToAllConnectorProj" tau_syn="2." e_rev="0."/>
+    <alphaCondSynapse id="syn__OneToOneConnector" tau_syn="2." e_rev="0."/>
+    <alphaCondSynapse id="syn__FixedProbabilityConnector" tau_syn="2." e_rev="0."/>
+    <alphaCondSynapse id="syn__AllToAllConnectorProjSelection" tau_syn="2." e_rev="0."/>
+    <network id="ConnectionsTest">
+        <population id="pop_pre" component="IF_cond_alpha_pop_pre" size="5" type="populationList">
+            <instance id="0">
+                <location x="0." y="0." z="0."/>
+            </instance>
+            <instance id="1">
+                <location x="1." y="0." z="0."/>
+            </instance>
+            <instance id="2">
+                <location x="2." y="0." z="0."/>
+            </instance>
+            <instance id="3">
+                <location x="3." y="0." z="0."/>
+            </instance>
+            <instance id="4">
+                <location x="4." y="0." z="0."/>
+            </instance>
+        </population>
+        <population id="pop_post" component="IF_cond_alpha_pop_post" size="5" type="populationList">
+            <instance id="0">
+                <location x="0." y="0." z="0."/>
+            </instance>
+            <instance id="1">
+                <location x="1." y="0." z="0."/>
+            </instance>
+            <instance id="2">
+                <location x="2." y="0." z="0."/>
+            </instance>
+            <instance id="3">
+                <location x="3." y="0." z="0."/>
+            </instance>
+            <instance id="4">
+                <location x="4." y="0." z="0."/>
+            </instance>
+        </population>
+        <projection id="pop_pre__TO__pop_post" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__pop_pre__TO__pop_post">
+            <connectionWD id="0" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="1" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="2" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="3" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="4" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="5" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="6" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="7" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="8" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="9" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="10" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="11" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="12" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="13" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="14" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="15" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="16" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="17" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="18" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="19" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="20" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="21" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="22" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="23" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="24" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+        </projection>
+        <projection id="AllToAllConnectorProj" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__AllToAllConnectorProj">
+            <connectionWD id="0" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="1" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="2" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="3" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="4" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="5" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="6" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="7" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="8" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="9" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="10" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="11" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="12" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="13" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="14" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="15" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="16" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="17" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="18" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="19" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="20" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="21" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="22" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="23" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="24" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+        </projection>
+        <projection id="OneToOneConnector" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__OneToOneConnector">
+            <connectionWD id="0" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.02" delay="4.0ms"/>
+            <connectionWD id="1" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.02" delay="4.0ms"/>
+            <connectionWD id="2" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.02" delay="4.0ms"/>
+            <connectionWD id="3" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.02" delay="4.0ms"/>
+            <connectionWD id="4" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.02" delay="4.0ms"/>
+        </projection>
+        <projection id="FixedProbabilityConnector" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__FixedProbabilityConnector">
+            <connectionWD id="0" preCellId="../pop_pre/0/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.1" delay="1.0ms"/>
+            <connectionWD id="1" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/1/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.1" delay="1.0ms"/>
+            <connectionWD id="2" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.1" delay="1.0ms"/>
+            <connectionWD id="3" preCellId="../pop_pre/4/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/3/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.1" delay="1.0ms"/>
+            <connectionWD id="4" preCellId="../pop_pre/2/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.1" delay="1.0ms"/>
+            <connectionWD id="5" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.1" delay="1.0ms"/>
+        </projection>
+        <projection id="AllToAllConnectorProjSelection" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__AllToAllConnectorProjSelection">
+            <connectionWD id="0" preCellId="../pop_pre/1/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="1" preCellId="../pop_pre/3/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="2" preCellId="../pop_pre/1/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="3" preCellId="../pop_pre/3/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="4" preCellId="../pop_pre/1/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="5" preCellId="../pop_pre/3/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+        </projection>
+    </network>
+</neuroml>
