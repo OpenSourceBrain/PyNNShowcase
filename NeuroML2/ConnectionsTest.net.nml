@@ -2,8 +2,8 @@
     <notes>
     This NeuroML 2 file has been generated from: 
         PyNN v0.9.2
-        libNeuroML v0.2.37
-        pyNeuroML v0.3.8
+        libNeuroML v0.2.38
+        pyNeuroML v0.3.9
     </notes>
     <IF_cond_alpha id="IF_cond_alpha_pop_pre" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="5." v_reset="-65." v_rest="-65." v_thresh="-50." e_rev_E="0." e_rev_I="-70."/>
     <IF_cond_alpha id="IF_cond_alpha_pop_post" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="5." v_reset="-65." v_rest="-65." v_thresh="-50." e_rev_E="0." e_rev_I="-70."/>
@@ -17,38 +17,38 @@
             <property tag="radius" value="5"/>
             <property tag="color" value="0 0.6 0"/>
             <instance id="0">
-                <location x="3.977600062660147" y="-44.612398370894766" z="67.33204177827885"/>
+                <location x="5.706141314068391" y="-33.749447106855747" z="8.706218034721669"/>
             </instance>
             <instance id="1">
-                <location x="24.217250917424948" y="-22.84815800084683" z="1.059454154289696"/>
+                <location x="60.261304656422496" y="-23.717695891745638" z="-4.461771229713896"/>
             </instance>
             <instance id="2">
-                <location x="1.11879185321222" y="4.943410638089407" z="87.503587155366262"/>
+                <location x="67.30055971642193" y="39.053988874058689" z="36.730278948154506"/>
             </instance>
             <instance id="3">
-                <location x="-15.7218135735693" y="-20.382862575746863" z="16.616840080824424"/>
+                <location x="-17.486643194508346" y="54.236550018011755" z="36.319435399864794"/>
             </instance>
             <instance id="4">
-                <location x="-6.584218783771889" y="37.043210221668879" z="-51.269921014760598"/>
+                <location x="-23.097516823936704" y="66.508884198395464" z="-3.319641253565631"/>
             </instance>
         </population>
         <population id="pop_post" component="IF_cond_alpha_pop_post" size="5" type="populationList">
             <property tag="radius" value="5"/>
             <property tag="color" value="0 0.2 0.6"/>
             <instance id="0">
-                <location x="-38.596212107867053" y="118.357950770311106" z="26.328593492461927"/>
+                <location x="-33.609287619223281" y="236.694523340079172" z="-66.178491222125558"/>
             </instance>
             <instance id="1">
-                <location x="23.739767038248118" y="170.520153910833784" z="54.444245873141874"/>
+                <location x="-13.431384608930252" y="126.929620064883281" z="12.855517913134772"/>
             </instance>
             <instance id="2">
-                <location x="-18.402577637638352" y="137.033650037793194" z="-60.694265286138084"/>
+                <location x="2.738031218089576" y="173.049722725881566" z="-47.750708783644249"/>
             </instance>
             <instance id="3">
-                <location x="83.242708854953534" y="188.574353284169803" z="-15.520611932139804"/>
+                <location x="35.30238677281001" y="156.897983254457614" z="68.899241953442953"/>
             </instance>
             <instance id="4">
-                <location x="-19.161573308610148" y="186.699985201960885" z="-20.144133140518882"/>
+                <location x="69.4103558569022" y="168.697359645581997" z="19.644837611414424"/>
             </instance>
         </population>
         <projection id="pop_pre__TO__pop_post" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__pop_pre__TO__pop_post">
@@ -121,12 +121,12 @@
             <connectionWD id="5" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.1" delay="1.0ms"/>
         </projection>
         <projection id="AllToAllConnectorProjSelection" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__AllToAllConnectorProjSelection">
-            <connectionWD id="0" preCellId="../pop_pre/1/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
-            <connectionWD id="1" preCellId="../pop_pre/3/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
-            <connectionWD id="2" preCellId="../pop_pre/1/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
-            <connectionWD id="3" preCellId="../pop_pre/3/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
-            <connectionWD id="4" preCellId="../pop_pre/1/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
-            <connectionWD id="5" preCellId="../pop_pre/3/IF_cond_alpha_pre_selection" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_post_selection" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="0" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="1" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/0/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="2" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="3" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/2/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="4" preCellId="../pop_pre/1/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
+            <connectionWD id="5" preCellId="../pop_pre/3/IF_cond_alpha_pop_pre" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post/4/IF_cond_alpha_pop_post" postSegmentId="0" postFractionAlong="0.5" weight="0.05" delay="5.0ms"/>
         </projection>
     </network>
 </neuroml>
