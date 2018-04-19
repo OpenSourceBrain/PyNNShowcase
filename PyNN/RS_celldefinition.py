@@ -41,7 +41,7 @@ class RS(object):
         self.soma.L = 10.0
         self.soma(0.5).diam = 10.0
         # Todo: work this out here from area etc.
-        self.soma(0.5).cm = (318309*parameters['C'] if parameters.has_key('C') else 318.31927 )
+        self.soma(0.5).cm = (318310*parameters['C'] if parameters.has_key('C') else 318.31 )
         self.soma.push()
         self.mechanism = h.RS(0.5, sec=self.soma)
 

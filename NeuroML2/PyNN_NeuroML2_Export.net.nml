@@ -2,8 +2,8 @@
     <notes>
     This NeuroML 2 file has been generated from: 
         PyNN v0.9.2
-        libNeuroML v0.2.39
-        pyNeuroML v0.3.10
+        libNeuroML v0.2.40
+        pyNeuroML v0.3.11
     </notes>
     <IF_curr_alpha id="IF_curr_alpha_pop_IF_curr_alpha" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="10." v_reset="-62." v_rest="-65." v_thresh="-52."/>
     <IF_curr_exp id="IF_curr_exp_pop_IF_curr_exp" cm="1." i_offset="1." tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="8." v_reset="-70." v_rest="-65." v_thresh="-50."/>
@@ -57,10 +57,10 @@
             </instance>
         </population>
         <projection id="pop_EIF_cond_exp_isfa_ista__TO__pop_post1" presynapticPopulation="pop_EIF_cond_exp_isfa_ista" postsynapticPopulation="pop_post1" synapse="syn__pop_EIF_cond_exp_isfa_ista__TO__pop_post1">
-            <connectionWD id="0" preCellId="../pop_EIF_cond_exp_isfa_ista/0/EIF_cond_exp_isfa_ista_pop_EIF_cond_exp_isfa_ista" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post1/0/IF_cond_exp_pop_post1" postSegmentId="0" postFractionAlong="0.5" weight="0.01" delay="10.0ms"/>
+            <connectionWD id="0" preCellId="../pop_EIF_cond_exp_isfa_ista/0/EIF_cond_exp_isfa_ista_pop_EIF_cond_exp_isfa_ista" postCellId="../pop_post1/0/IF_cond_exp_pop_post1" weight="0.01" delay="10.0ms"/>
         </projection>
         <projection id="pop_EIF_cond_exp_isfa_ista__TO__pop_post2" presynapticPopulation="pop_EIF_cond_exp_isfa_ista" postsynapticPopulation="pop_post2" synapse="syn__pop_EIF_cond_exp_isfa_ista__TO__pop_post2">
-            <connectionWD id="0" preCellId="../pop_EIF_cond_exp_isfa_ista/0/EIF_cond_exp_isfa_ista_pop_EIF_cond_exp_isfa_ista" preSegmentId="0" preFractionAlong="0.5" postCellId="../pop_post2/0/IF_cond_alpha_pop_post2" postSegmentId="0" postFractionAlong="0.5" weight="0.005" delay="20.0ms"/>
+            <connectionWD id="0" preCellId="../pop_EIF_cond_exp_isfa_ista/0/EIF_cond_exp_isfa_ista_pop_EIF_cond_exp_isfa_ista" postCellId="../pop_post2/0/IF_cond_alpha_pop_post2" weight="0.005" delay="20.0ms"/>
         </projection>
     </network>
 </neuroml>
