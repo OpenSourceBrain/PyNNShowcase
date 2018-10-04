@@ -3,7 +3,7 @@ Simple network for testing export to NeuroML v2
 
 """
 import logging
-logging.basicConfig(format='%(levelname)s - %(name)s: %(message)s', level=logging.DEBUG)
+#logging.basicConfig(format='%(levelname)s - %(name)s: %(message)s', level=logging.DEBUG)
 
 import sys
 import os
