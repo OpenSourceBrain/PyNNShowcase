@@ -8,7 +8,7 @@ experiments:
     observables:
       spike times:
         file: 
-          path: pop_IF_curr_alpha_v.dat
+          path: pop_IF_curr_alpha_0_v.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 
@@ -19,7 +19,7 @@ experiments:
     observables:
       spike times:
         file: 
-          path: pop_EIF_cond_exp_isfa_ista_v.dat
+          path: pop_EIF_cond_exp_isfa_ista_0_v.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 
@@ -30,7 +30,7 @@ experiments:
     observables:
       spike times:
         file: 
-          path: pop_post2_v.dat
+          path: pop_post2_0_v.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 

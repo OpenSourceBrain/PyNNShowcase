@@ -1,26 +1,26 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
  
-target: InputsTest.py
-engine: PyNN_NEURON
-mep: .test.input.mep
+target: LEMS_Sim_Inputs.xml
+engine: jNeuroML
+mep: ../PyNN/.test.input.mep
 experiments:
   v0:
     observables:
       spike times:
         file: 
-          path: pop_pre_0_v.dat
+          path: pop_pre_v.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 
           method: threshold
           threshold: -50.1
-        tolerance: 0
+        tolerance: 0.0013489815189533436
         
   spikes2:
     observables:
       spike times:
         spiketimes file: 
           path: pop_pre.spikes
-          format: ID_TIME
+          format: TIME_ID
           id: 2
-        tolerance: 0
+        tolerance: 0.0010886469673406438

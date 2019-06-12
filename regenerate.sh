@@ -31,9 +31,14 @@ rm -rf *.xml *.nml
 
 python NeuroMLTest_PyNN0.9.py neuroml
 mv *.xml *.nml ../NeuroML2
+
+
+python InputsTest.py neuroml
+mv *.xml *.nml ../NeuroML2
 python ConnectionsTest.py neuroml
 python PositionsTest.py neuroml
 mv *nml.h5 *.nml ../NeuroML2
+
 
 #------------------------------------
 

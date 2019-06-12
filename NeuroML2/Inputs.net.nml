@@ -1,0 +1,45 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="Inputs">
+    <notes>
+    This NeuroML 2 file has been generated from: 
+        PyNN v0.9.4
+        libNeuroML v0.2.47
+        pyNeuroML v0.3.17
+    </notes>
+    <pulseGenerator id="DCSource_DCSource_0" delay="50.0ms" duration="350.0ms" amplitude="0.9nA"/>
+    <compoundInput id="ACSource_ACSource_1">
+        <pulseGenerator id="PG_ACSource_ACSource_1" delay="50.0ms" duration="400.0ms" amplitude="1.0nA"/>
+        <sineGenerator id="SG_ACSource_ACSource_1" delay="50.0ms" phase="3.14159265" duration="400.0ms" amplitude="1.0nA" period="0.1 s"/>
+    </compoundInput>
+    <compoundInput id="StepCurrentSource_StepCurrentSource_2">
+        <pulseGenerator id="step_0" delay="50.0ms" duration="60.0ms" amplitude="0.4nA"/>
+        <pulseGenerator id="step_1" delay="110.0ms" duration="240.0ms" amplitude="0.9nA"/>
+        <pulseGenerator id="step_2" delay="350.0ms" duration="60.0ms" amplitude="-0.2nA"/>
+        <pulseGenerator id="step_3" delay="410.0ms" duration="999999590.0ms" amplitude="0.2nA"/>
+    </compoundInput>
+    <IF_cond_alpha id="IF_cond_alpha_pop_pre" cm="1." i_offset="0.1" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="5." v_reset="-65." v_rest="-65." v_thresh="-50." e_rev_E="0." e_rev_I="-70."/>
+    <network id="Inputs">
+        <population id="pop_pre" component="IF_cond_alpha_pop_pre" size="4" type="populationList">
+            <instance id="0">
+                <location x="0." y="0." z="0."/>
+            </instance>
+            <instance id="1">
+                <location x="1." y="0." z="0."/>
+            </instance>
+            <instance id="2">
+                <location x="2." y="0." z="0."/>
+            </instance>
+            <instance id="3">
+                <location x="3." y="0." z="0."/>
+            </instance>
+        </population>
+        <inputList id="Input_DCSource_DCSource_0" population="pop_pre" component="DCSource_DCSource_0">
+            <input id="0" target="../pop_pre/0/IF_cond_alpha_pop_pre" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ACSource_ACSource_1" population="pop_pre" component="ACSource_ACSource_1">
+            <input id="0" target="../pop_pre/1/IF_cond_alpha_pop_pre" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_StepCurrentSource_StepCurrentSource_2" population="pop_pre" component="StepCurrentSource_StepCurrentSource_2">
+            <input id="0" target="../pop_pre/2/IF_cond_alpha_pop_pre" destination="synapses"/>
+        </inputList>
+    </network>
+</neuroml>

@@ -36,3 +36,4 @@ NeuroML2/*nrn.py
 /PyNN/LEMS_Sim_ConnectionsTest.xml
 /NeuroML2/*.png
 /NeuroML2/*.pov
+/tests.log

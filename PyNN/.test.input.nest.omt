@@ -2,3 +2,25 @@
  
 target: InputsTest.py
 engine: PyNN_Nest
+mep: .test.input.mep
+experiments:
+  v0:
+    observables:
+      spike times:
+        file: 
+          path: pop_pre_0_v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -50.1
+        tolerance: 0.0012140833670578404
+        
+  spikes2:
+    observables:
+      spike times:
+        spiketimes file: 
+          path: pop_pre.spikes
+          format: ID_TIME
+          id: 2
+        tolerance: 0.0009331259720062907

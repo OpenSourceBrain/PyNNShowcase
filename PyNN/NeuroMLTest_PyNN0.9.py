@@ -11,7 +11,6 @@ from importlib import import_module
 import numpy as np
 
 from pyNN.utility import get_script_args
-from neo.io import PyNNTextIO
 
 simulator_name = get_script_args(1)[0]  
 sim = import_module("pyNN.%s" % simulator_name)
@@ -98,20 +97,33 @@ else:
 
     for pop in [pop_IF_curr_alpha, pop_IF_curr_exp, pop_IF_cond_exp, pop_IF_cond_alpha,pop_EIF_cond_exp_isfa_ista, pop_HH_cond_exp, pop_post1,pop_post2]:
         data =  pop.get_data('v', gather=False)
-        filename = "%s_v.dat"%(pop.label)
-        print("Writing data for %s"%pop)
-        for segment in data.segments:
-            vm = segment.analogsignals[0].transpose()[0]
-            tt = np.array([t*time_step/1000. for t in range(len(vm))])
+        analogsignal = data.segments[0].analogsignals[0]
+        name = analogsignal.name
+        source_ids = analogsignal.annotations['source_ids']
+        print('Saving data recorded for %s in pop %s, global ids: %s'%(name, pop.label, source_ids))
+        for i in range(len(source_ids)):
+            glob_id = source_ids[i]
+            index_in_pop = pop.id_to_index(glob_id)
+            filename = "%s_%s_%s.dat"%(pop.label,index_in_pop,name)
+            print("Writing data for cell %i = %s[%s] (gid: %i) to %s "%(i, pop.label,index_in_pop, glob_id, filename))
+            vm = analogsignal.transpose()[i]
+            tt = np.array([t*sim.get_time_step()/1000. for t in range(len(vm))])
             times_vm = np.array([tt, vm/1000.]).transpose()
             np.savetxt(filename, times_vm , delimiter = '\t', fmt='%s')
+
+        data =  pop.get_data('spikes', gather=False)
+        spiketrains = data.segments[0].spiketrains
+
         filename = "%s.spikes"%(pop.label)
-        io = PyNNTextIO(filename=filename)
-        spikes =  pop.get_data('spikes', gather=False)
-        if len(spikes.segments[0].spiketrains)>0:
-            print("Writing data for %s"%pop)
-            for segment in spikes.segments:
-                io.write_segment(segment)
+        ff = open(filename, 'w')
+        print('Saving data recorded for spikes in pop %s, indices: %s to %s'%(pop.label, [s.annotations['source_id'] for s in spiketrains], filename))
+        for spiketrain in spiketrains:
+            source_id = spiketrain.annotations['source_id']
+            source_index = spiketrain.annotations['source_index']
+            print("Writing spike data for cell %s[%s] (gid: %i): %s "%(pop.label,source_index, source_id, spiketrain))
+            for t in spiketrain:
+                ff.write('%s\t%f\n'%(source_index,t.magnitude/1000.))
+        ff.close()
 
 
 sim.end()

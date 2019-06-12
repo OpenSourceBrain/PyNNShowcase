@@ -15,7 +15,7 @@ simulator_name = get_script_args(1)[0]
 sim = import_module("pyNN.%s" % simulator_name)
 
 tstop = 500.0
-time_step = 0.005
+time_step = 0.05
 
 sim.setup(timestep=time_step, debug=True,reference="Inputs",save_format='xml')
 
@@ -26,6 +26,7 @@ cell_params = {'tau_refrac':5,'v_thresh':-50.0, 'v_reset':-65.0, 'i_offset': 0.1
 all_pops = []
 pop_pre = sim.Population(pop_size, sim.IF_cond_alpha(**cell_params), label="pop_pre")
 pop_pre.record('v')
+pop_pre.record('spikes')
 all_pops.append(pop_pre)
 
 dcs = sim.DCSource(amplitude=0.9, start=50, stop=400.0)
@@ -46,17 +47,35 @@ pop_pre[2].inject(scs)
 
 sim.run(tstop)
 
-
 for pop in all_pops:
-    for i in range(len(pop)):
-        filename = "%s_%s_v.dat"%(pop.label,i)
-        print("Writing data for %s[%s]"%(pop,i))
-        data =  pop.get_data('v', gather=False)
-        for segment in data.segments:
-            vm = segment.analogsignals[0].transpose()[i]
-            tt = np.array([t*sim.get_time_step()/1000. for t in range(len(vm))])
-            times_vm = np.array([tt, vm/1000.]).transpose()
-            np.savetxt(filename, times_vm , delimiter = '\t', fmt='%s')
+    data =  pop.get_data('v', gather=False)
+    analogsignal = data.segments[0].analogsignals[0]
+    name = analogsignal.name
+    source_ids = analogsignal.annotations['source_ids']
+    print('Saving data recorded for %s in pop %s, global ids: %s'%(name, pop.label, source_ids))
+    for i in range(len(source_ids)):
+        glob_id = source_ids[i]
+        index_in_pop = pop.id_to_index(glob_id)
+        filename = "%s_%s_%s.dat"%(pop.label,index_in_pop,name)
+        print("Writing data for cell %i = %s[%s] (gid: %i) to %s "%(i, pop.label,index_in_pop, glob_id, filename))
+        vm = analogsignal.transpose()[i]
+        tt = np.array([t*sim.get_time_step()/1000. for t in range(len(vm))])
+        times_vm = np.array([tt, vm/1000.]).transpose()
+        np.savetxt(filename, times_vm , delimiter = '\t', fmt='%s')
+            
+    data =  pop.get_data('spikes', gather=False)
+    spiketrains = data.segments[0].spiketrains
+        
+    filename = "%s.spikes"%(pop.label)
+    ff = open(filename, 'w')
+    print('Saving data recorded for spikes in pop %s, indices: %s to %s'%(pop.label, [s.annotations['source_id'] for s in spiketrains], filename))
+    for spiketrain in spiketrains:
+        source_id = spiketrain.annotations['source_id']
+        source_index = spiketrain.annotations['source_index']
+        print("Writing spike data for cell %s[%s] (gid: %i): %s "%(pop.label,source_index, source_id, spiketrain))
+        for t in spiketrain:
+            ff.write('%s\t%f\n'%(source_index,t.magnitude/1000.))
+    ff.close()
 
 
 sim.end()
@@ -67,15 +86,18 @@ if '-gui' in sys.argv:
         
         print("Plotting results of simulation in %s"%simulator_name)
 
-        plt.figure("Voltages for IaF cells")
         for pop in all_pops:
             data = pop.get_data()
-            vm = data.segments[0].analogsignals[0]
-            plt.plot(vm, '-', label='%s: v'%pop.label)
-            
-        plt.legend()
+            vms = data.segments[0].analogsignals[0].transpose()
+            for i, vm in enumerate(vms):
+                plt.figure("Voltages for cell %i in %s, simulator: %s"%(i, pop.label,simulator_name))
+                plt.plot(vm, '-', label='%s[%i]: v'%(pop.label,i))
+                plt.legend()
 
         plt.show()
 
+else:
+
+    print("Simulation completed.\nRun this script with flag: -gui to plot activity of a number of cells")
 
 
