@@ -8,7 +8,7 @@ experiments:
     observables:
       spike times:
         file: 
-          path: pop_pre_0_v.dat
+          path: pop_pre_v.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 
@@ -21,6 +21,6 @@ experiments:
       spike times:
         spiketimes file: 
           path: pop_pre.spikes
-          format: ID_TIME
+          format: TIME_ID
           id: 2
         tolerance: 0.0021772939346812875

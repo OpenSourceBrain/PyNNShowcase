@@ -52,16 +52,21 @@ for pop in all_pops:
     analogsignal = data.segments[0].analogsignals[0]
     name = analogsignal.name
     source_ids = analogsignal.annotations['source_ids']
-    print('Saving data recorded for %s in pop %s, global ids: %s'%(name, pop.label, source_ids))
+    filename = "%s_%s.dat"%(pop.label,name)
+    print('Saving data recorded for %s in pop %s, global ids: %s to %s'%(name, pop.label, source_ids, filename))
+    times_vm_a = []
     for i in range(len(source_ids)):
         glob_id = source_ids[i]
         index_in_pop = pop.id_to_index(glob_id)
-        filename = "%s_%s_%s.dat"%(pop.label,index_in_pop,name)
         print("Writing data for cell %i = %s[%s] (gid: %i) to %s "%(i, pop.label,index_in_pop, glob_id, filename))
         vm = analogsignal.transpose()[i]
-        tt = np.array([t*sim.get_time_step()/1000. for t in range(len(vm))])
-        times_vm = np.array([tt, vm/1000.]).transpose()
-        np.savetxt(filename, times_vm , delimiter = '\t', fmt='%s')
+        if len(times_vm_a)==0:
+            tt = np.array([t*sim.get_time_step()/1000. for t in range(len(vm))])
+            times_vm_a.append(tt)
+        times_vm_a.append(vm/1000.)
+        
+    times_vm = np.array(times_vm_a).transpose()
+    np.savetxt(filename, times_vm , delimiter = '\t', fmt='%s')
             
     data =  pop.get_data('spikes', gather=False)
     spiketrains = data.segments[0].spiketrains
@@ -74,7 +79,7 @@ for pop in all_pops:
         source_index = spiketrain.annotations['source_index']
         print("Writing spike data for cell %s[%s] (gid: %i): %s "%(pop.label,source_index, source_id, spiketrain))
         for t in spiketrain:
-            ff.write('%s\t%f\n'%(source_index,t.magnitude/1000.))
+            ff.write('%s\t%f\n'%(t.magnitude/1000.,source_index))
     ff.close()
 
 
