@@ -42,3 +42,4 @@ NeuroML2/*nrn.py
 /NeuroML2/*pynn.py
 /NeuroML2/IF_cond_alpha_pop_pre.cell.json
 /NeuroML2/LEMS_Sim_Inputs_pynn.py_main.json
+/PyNN/tests.log

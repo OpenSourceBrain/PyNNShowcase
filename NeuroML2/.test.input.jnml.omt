@@ -22,5 +22,5 @@ experiments:
         spiketimes file: 
           path: pop_pre.spikes
           format: TIME_ID
-          id: 2
+          ids: 2
         tolerance: 0.0010886469673406438
