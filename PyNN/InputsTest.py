@@ -79,7 +79,7 @@ for pop in all_pops:
         source_index = spiketrain.annotations['source_index']
         print("Writing spike data for cell %s[%s] (gid: %i): %s "%(pop.label,source_index, source_id, spiketrain))
         for t in spiketrain:
-            ff.write('%s\t%f\n'%(t.magnitude/1000.,source_index))
+            ff.write('%s\t%i\n'%(t.magnitude/1000.,source_index))
     ff.close()
 
 
