@@ -3,7 +3,7 @@
     This NeuroML 2 file has been generated from: 
         PyNN v0.9.4
         libNeuroML v0.2.47
-        pyNeuroML v0.3.17
+        pyNeuroML v0.3.18
     </notes>
     <pulseGenerator id="DCSource_DCSource_0" delay="50.0ms" duration="350.0ms" amplitude="0.9nA"/>
     <compoundInput id="ACSource_ACSource_1">
