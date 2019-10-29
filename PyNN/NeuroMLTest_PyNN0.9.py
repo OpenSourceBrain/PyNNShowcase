@@ -91,9 +91,6 @@ if use_hdf5:
     pop_post2.write_data(io)
 
 else:
-    #from neo.io import AsciiSignalIO as NeoIO
-    #suffix = 'txt'
-    #results_file = "Results/NeuroMLTest_%s.%s" % (simulator_name, suffix)
 
     for pop in [pop_IF_curr_alpha, pop_IF_curr_exp, pop_IF_cond_exp, pop_IF_cond_alpha,pop_EIF_cond_exp_isfa_ista, pop_HH_cond_exp, pop_post1,pop_post2]:
         data =  pop.get_data('v', gather=False)
