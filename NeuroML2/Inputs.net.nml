@@ -1,9 +1,9 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.1.xsd" id="Inputs">
     <notes>
     This NeuroML 2 file has been generated from: 
-        PyNN v0.9.4
-        libNeuroML v0.2.51
-        pyNeuroML v0.5.3
+        PyNN v0.9.5m
+        libNeuroML v0.2.52
+        pyNeuroML v0.5.6
     </notes>
     <pulseGenerator id="DCSource_DCSource_0" delay="50.0ms" duration="350.0ms" amplitude="0.9nA"/>
     <compoundInput id="ACSource_ACSource_1">

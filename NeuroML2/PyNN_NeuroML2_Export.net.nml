@@ -1,9 +1,9 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.1.xsd" id="PyNN_NeuroML2_Export">
     <notes>
     This NeuroML 2 file has been generated from: 
-        PyNN v0.9.4
-        libNeuroML v0.2.51
-        pyNeuroML v0.5.3
+        PyNN v0.9.5m
+        libNeuroML v0.2.52
+        pyNeuroML v0.5.6
     </notes>
     <IF_curr_alpha id="IF_curr_alpha_pop_IF_curr_alpha" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="10." v_reset="-62." v_rest="-65." v_thresh="-52."/>
     <IF_curr_exp id="IF_curr_exp_pop_IF_curr_exp" cm="1." i_offset="1." tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="8." v_reset="-70." v_rest="-65." v_thresh="-50."/>
