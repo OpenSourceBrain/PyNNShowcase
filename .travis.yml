@@ -1,57 +1,53 @@
 # Framework for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
 
 dist: xenial
-sudo: false  
+sudo: false
 
 addons:
   apt:
     packages:
        # Requirements for Brian & NEST
-    - python-numpy 
-    - python-scipy 
-    - python-matplotlib 
+    - python-numpy
+    - python-scipy
+    - python-matplotlib
     - python-sympy
-    - python-tables 
+    - python-tables
     - python-tornado
-    - libreadline6-dev 
-    - libncurses5-dev 
+    - libreadline6-dev
+    - libncurses5-dev
     - libgsl0-dev
     - cython
-    
-    
-language: python
-python: 2.7
 
-virtualenv:
-    system_site_packages: true
+
+language: python
+python:
+    - 2.7
+    - 3.7
 
 env:
-    - OMV_ENGINE=jNeuroML
-    - OMV_ENGINE=jNeuroML_NEURON
+    #- OMV_ENGINE=jNeuroML
+    #- OMV_ENGINE=jNeuroML_NEURON
     - OMV_ENGINE=jNeuroML_PyNN_NEURON
-    - OMV_ENGINE=jNeuroML_validate
+    #- OMV_ENGINE=jNeuroML_validate
     - OMV_ENGINE=PyNN_NEURON
     - OMV_ENGINE=PyNN_Nest
-    - OMV_ENGINE=PyNN_Brian1
-    - OMV_ENGINE=PyNN_NeuroML
+    #- OMV_ENGINE=PyNN_Brian1
+    #- OMV_ENGINE=PyNN_NeuroML
 
-install: 
+install:
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
     - pip install scipy # Why is this needed? Doesn't seem to get installed correctly on trusty with addons above...
-    
-    # Need to pre install NEURON for PyNN_NEURON so nrnivmodl can be run on generated mods 
-    - if [[ ${OMV_ENGINE} == "PyNN_NEURON" ]]; then 
-        omv install NEURON; 
+
+    # Need to pre install NEURON for PyNN_NEURON so nrnivmodl can be run on generated mods
+    - if [[ ${OMV_ENGINE} == "PyNN_NEURON" ]]; then
+        omv install NEURON;
         cd PyNN;
         /home/travis/neuron/nrn/x86_64/bin/nrnivmodl;
         cd ..;
-        omv list-engines; 
+        omv list-engines;
       fi;
 
 script:
     - omv all -V
     - omv list-engines -V
-    
-    
-    
-
+    - which nrnivmodl
