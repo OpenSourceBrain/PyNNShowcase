@@ -50,4 +50,5 @@ install:
 script:
     - omv all -V
     - omv list-engines -V
-    - which nrnivmodl
+    - pip freeze
+    - env
