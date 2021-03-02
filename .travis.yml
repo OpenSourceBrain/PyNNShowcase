@@ -49,6 +49,6 @@ install:
 
 script:
     - omv all -V
-    - omv list-engines -V
+    - omv list -V
     - pip freeze
     - env
