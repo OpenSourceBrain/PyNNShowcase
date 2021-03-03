@@ -35,7 +35,7 @@ env:
 
 install:
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
-    - pip install scipy # Why is this needed? Doesn't seem to get installed correctly on trusty with addons above...
+    - pip install tables scipy # Why is this needed? Doesn't seem to get installed correctly on travis with addons above...
 
     # Need to pre install NEURON for PyNN_NEURON so nrnivmodl can be run on generated mods
     - if [[ ${OMV_ENGINE} == "PyNN_NEURON" ]]; then
@@ -47,7 +47,7 @@ install:
       fi;
 
 script:
-    - omv all -V --ignore-non-py3  # will ignore Brian1 tests on py3
+    - omv all -V --ignore-non-py3  # will ignore Brian1 tests when run on py3
     - omv list -V
     - pip freeze
     - env
