@@ -1,6 +1,6 @@
 # PyNN Showcase
 
-A repository for testing interactions/conversions between NeuroML &amp; PyNN.
+A repository for testing interactions/conversions between NeuroML &amp; [PyNN](http://neuralensemble.org/PyNN/).
 
 See here: https://github.com/NeuroML/NeuroML2/issues/73 for current plans/updates re NeuroML & PyNN.
 
