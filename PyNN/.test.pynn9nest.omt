@@ -37,3 +37,23 @@ experiments:
           method: threshold
           threshold: -63.5
         tolerance: 0.0001403
+
+  spike_rate_IF_curr_alpha_0:
+    observables:
+      spike rate:
+        spiketimes file: 
+          path: pop_IF_curr_alpha.spikes
+          format: ID_TIME
+          scaling: 1
+          ids: 0
+        tolerance: 0.00
+
+  spike_rate_IF_curr_alpha_1:
+    observables:
+      spike rate:
+        spiketimes file: 
+          path: pop_IF_curr_alpha.spikes
+          format: ID_TIME
+          scaling: 1
+          ids: 1
+        tolerance: 0.00
