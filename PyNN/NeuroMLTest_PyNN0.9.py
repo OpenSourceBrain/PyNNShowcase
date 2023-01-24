@@ -96,7 +96,8 @@ else:
     def get_source_id(spiketrain):
         if 'source_id' in spiketrain.annotations:
             return spiketrain.annotations['source_id']
-        elif 'channel_id' in spiketrain.annotations:
+            
+        elif 'channel_id' in spiketrain.annotations: # See https://github.com/NeuralEnsemble/PyNN/pull/762
             return spiketrain.annotations['channel_id']
 
     for pop in [pop_IF_curr_alpha, pop_IF_curr_exp, pop_IF_cond_exp, pop_IF_cond_alpha,pop_EIF_cond_exp_isfa_ista, pop_HH_cond_exp, pop_post1,pop_post2]:
