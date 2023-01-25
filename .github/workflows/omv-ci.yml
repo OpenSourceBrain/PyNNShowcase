@@ -41,7 +41,8 @@ jobs:
         
     - name: Regenerate
       run: |
-        omv install pyNeuroML
+        omv install jNeuroML
+        export PATH=/home/runner/jnml/jNeuroMLJar:$PATH
         ./regenerate.sh
         
     - name: Run OMV tests on engine ${{ matrix.engine }} again
