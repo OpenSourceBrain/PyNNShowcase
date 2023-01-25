@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 ####   Regenerating PyNN from NeuroML2 
 
