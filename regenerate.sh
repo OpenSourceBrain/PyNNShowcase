@@ -11,7 +11,7 @@ rm -rf *.json *.py* *.mod
 #------------------------------------
 # Convert LEMS_2007One.xml
 
-jnml LEMS_2007One.xml -pynn
+pynml LEMS_2007One.xml -pynn
 mv *.py *.mod ../PyNN
 
 #------------------------------------
