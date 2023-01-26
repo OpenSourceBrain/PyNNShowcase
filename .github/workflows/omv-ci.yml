@@ -47,11 +47,8 @@ jobs:
         export JNML_HOME=/home/runner/jnml/jNeuroMLJar
         export PATH=$JNML_HOME:$PATH
         ./regenerate.sh
-        
-    - name: Run OMV tests on engine ${{ matrix.engine }} again
-      run: |
-        omv all -V --engine=${{ matrix.engine }}
-        
+      
+
     - name: OMV final version info
       run: |
         omv list -V # list installed engines
