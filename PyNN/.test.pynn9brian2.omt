@@ -1,0 +1,59 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+ 
+target: NeuroMLTest_PyNN0.9.py 
+engine: PyNN_Brian2
+mep: .test.mep
+experiments:
+  IF_curr_alpha:
+    observables:
+      spike times:
+        file: 
+          path: pop_IF_curr_alpha_0_v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -55
+        tolerance: 0.00030816640986148277
+  EIF_cond_exp_isfa_ista:
+    observables:
+      spike times:
+        file: 
+          path: pop_EIF_cond_exp_isfa_ista_0_v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -45
+        tolerance: 0.0003676020095576662
+  pop_post2:
+    observables:
+      spike times:
+        file: 
+          path: pop_post2_0_v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -63.5
+        tolerance: 0.0007024938531787697
+
+  spike_rate_IF_curr_alpha_0:
+    observables:
+      spike rate:
+        spiketimes file: 
+          path: pop_IF_curr_alpha.spikes
+          format: ID_TIME
+          scaling: 1
+          ids: 0
+        tolerance: 0.00015639662183320716
+
+  spike_rate_IF_curr_alpha_1:
+    observables:
+      spike rate:
+        spiketimes file: 
+          path: pop_IF_curr_alpha.spikes
+          format: ID_TIME
+          scaling: 1
+          ids: 1
+        tolerance: 0.00015639662183320716

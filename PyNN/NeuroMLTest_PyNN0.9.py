@@ -140,7 +140,7 @@ else:
 sim.end()
 
 if '-gui' in sys.argv:
-    if simulator_name in ['neuron', 'nest', 'brian']:
+    if simulator_name in ['neuron', 'nest', 'brian2']:
         import matplotlib.pyplot as plt
         
         print("Plotting results of simulation in %s"%simulator_name)

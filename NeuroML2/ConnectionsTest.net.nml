@@ -17,38 +17,38 @@
             <property tag="radius" value="5"/>
             <property tag="color" value="0 0.6 0"/>
             <instance id="0">
-                <location x="-5.914387170398561" y="-22.223905863081473" z="-56.333288930624924"/>
+                <location x="87.867091429339169" y="36.566883841576825" z="23.819394994835253"/>
             </instance>
             <instance id="1">
-                <location x="-48.280093808668177" y="-1.74600391545412" z="55.137390974727921"/>
+                <location x="-22.414732648986103" y="-33.959789395443416" z="-90.377208907138694"/>
             </instance>
             <instance id="2">
-                <location x="-3.1332596752919" y="-15.973125652902876" z="36.322884259430488"/>
+                <location x="54.996078669841175" y="63.22244265268138" z="8.332732747183268"/>
             </instance>
             <instance id="3">
-                <location x="-8.778313716316699" y="81.847429787591523" z="-29.681274094462175"/>
+                <location x="-73.045184370403433" y="15.931090520535406" z="-47.20047085637156"/>
             </instance>
             <instance id="4">
-                <location x="-11.458426731340587" y="-77.924942042384515" z="24.877157780579793"/>
+                <location x="11.886080666355546" y="-72.950647718983646" z="55.989089396806754"/>
             </instance>
         </population>
         <population id="pop_post" component="IF_cond_alpha_pop_post" size="5" type="populationList">
             <property tag="radius" value="5"/>
             <property tag="color" value="0 0.2 0.6"/>
             <instance id="0">
-                <location x="4.204680835726826" y="193.352031484143424" z="-87.011247631463064"/>
+                <location x="32.097856025221816" y="177.715247089212056" z="-61.948698498499269"/>
             </instance>
             <instance id="1">
-                <location x="-18.115313873425954" y="231.496231810593116" z="-3.409146893733661"/>
+                <location x="-74.115635174364087" y="241.910458891653718" z="3.906619842172132"/>
             </instance>
             <instance id="2">
-                <location x="-16.557851267607582" y="123.760006211468806" z="5.364712110335756"/>
+                <location x="54.387445031828904" y="192.588501616654327" z="-11.472415749409581"/>
             </instance>
             <instance id="3">
-                <location x="4.610312499533631" y="197.861391312842983" z="-82.970632827731691"/>
+                <location x="-14.603226514170453" y="171.734277722969381" z="-35.411273746924962"/>
             </instance>
             <instance id="4">
-                <location x="58.989742776713342" y="174.743639118474761" z="12.026371943576608"/>
+                <location x="21.253482956578583" y="278.993049504672911" z="6.694332496085975"/>
             </instance>
         </population>
         <projection id="pop_pre__TO__pop_post" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__pop_pre__TO__pop_post">

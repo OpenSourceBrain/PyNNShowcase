@@ -1,0 +1,26 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+ 
+target: InputsTest.py
+engine: PyNN_Brian2
+mep: .test.input.mep
+experiments:
+  v0:
+    observables:
+      spike times:
+        file: 
+          path: pop_pre_v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -50.1
+        tolerance: 0.00377714825306902460
+        
+  spikes2:
+    observables:
+      spike times:
+        spiketimes file: 
+          path: pop_pre.spikes
+          format: TIME_ID
+          ids: 2
+        tolerance: 0.0031104199066874054
