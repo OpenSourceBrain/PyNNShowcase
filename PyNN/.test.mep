@@ -10,4 +10,12 @@ experiments:
     pop_post2:
         expected:
             spike times: [56.94, 106.92999999999999, 203.78, 312.56, 421.68]
+
+    spike_rate_IF_curr_alpha_0:
+        expected:
+            spike rate: 31.274433150899135
+
+    spike_rate_IF_curr_alpha_1:
+        expected:
+            spike rate: 31.274433150899135
     

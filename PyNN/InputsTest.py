@@ -73,10 +73,18 @@ for pop in all_pops:
         
     filename = "%s.spikes"%(pop.label)
     ff = open(filename, 'w')
-    print('Saving data recorded for spikes in pop %s, indices: %s to %s'%(pop.label, [s.annotations['source_id'] for s in spiketrains], filename))
+
+    def get_source_id(spiketrain):
+        if 'source_id' in spiketrain.annotations:
+            return spiketrain.annotations['source_id']
+            
+        elif 'channel_id' in spiketrain.annotations: # See https://github.com/NeuralEnsemble/PyNN/pull/762
+            return spiketrain.annotations['channel_id']
+
+    print('Saving data recorded for spikes in pop %s, indices: %s to %s'%(pop.label, [get_source_id(s) for s in spiketrains], filename))
     for spiketrain in spiketrains:
-        source_id = spiketrain.annotations['source_id']
-        source_index = spiketrain.annotations['source_index']
+        source_id = get_source_id(spiketrain)
+        source_index = pop.id_to_index(source_id)
         print("Writing spike data for cell %s[%s] (gid: %i): %s "%(pop.label,source_index, source_id, spiketrain))
         for t in spiketrain:
             ff.write('%s\t%i\n'%(t.magnitude/1000.,source_index))

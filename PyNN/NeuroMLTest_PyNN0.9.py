@@ -23,7 +23,7 @@ random.seed(1234) # To ensure LEMS file colors are same...
 sim.setup(timestep=time_step, debug=True)
     
 cell_params1 = {'tau_refrac':10,'v_thresh':-52.0, 'v_reset':-62.0, 'i_offset': 0.9, 'tau_syn_E'  : 2.0, 'tau_syn_I': 5.0}
-pop_IF_curr_alpha = sim.Population(1, sim.IF_curr_alpha(**cell_params1), label="pop_IF_curr_alpha")
+pop_IF_curr_alpha = sim.Population(3, sim.IF_curr_alpha(**cell_params1), label="pop_IF_curr_alpha")
 pop_IF_curr_alpha.record('v')
 pop_IF_curr_alpha.record('spikes')
 #pop_IF_curr_alpha.initialize('v', -67)
@@ -39,7 +39,7 @@ pop_IF_cond_alpha.record('v')
 #pop_IF_cond_alpha.initialize('v', -69)
 
 cell_params4 = {'tau_refrac':5,'v_thresh':-52.0, 'v_reset':-68.0, 'i_offset': 1, 'tau_syn_E'  : 2.0, 'tau_syn_I': 5.0}
-pop_IF_cond_exp = sim.Population(1, sim.IF_cond_exp(**cell_params4), label="pop_IF_cond_exp")
+pop_IF_cond_exp = sim.Population(3, sim.IF_cond_exp(**cell_params4), label="pop_IF_cond_exp")
 pop_IF_cond_exp.record('v')
 pop_IF_cond_exp.record('spikes')
 #pop_IF_cond_exp.initialize('v', -70)
@@ -92,6 +92,14 @@ if use_hdf5:
 
 else:
 
+
+    def get_source_id(spiketrain):
+        if 'source_id' in spiketrain.annotations:
+            return spiketrain.annotations['source_id']
+            
+        elif 'channel_id' in spiketrain.annotations: # See https://github.com/NeuralEnsemble/PyNN/pull/762
+            return spiketrain.annotations['channel_id']
+
     for pop in [pop_IF_curr_alpha, pop_IF_curr_exp, pop_IF_cond_exp, pop_IF_cond_alpha,pop_EIF_cond_exp_isfa_ista, pop_HH_cond_exp, pop_post1,pop_post2]:
         data =  pop.get_data('v', gather=False)
         analogsignal = data.segments[0].analogsignals[0]
@@ -113,20 +121,26 @@ else:
 
         filename = "%s.spikes"%(pop.label)
         ff = open(filename, 'w')
-        print('Saving data recorded for spikes in pop %s, indices: %s to %s'%(pop.label, [s.annotations['source_id'] for s in spiketrains], filename))
+        print('- Spikes: %s'%spiketrains)
+        
+        print('Saving data recorded for spikes in pop %s, indices: %s to %s'%(pop.label, [get_source_id(s) for s in spiketrains], filename))
         for spiketrain in spiketrains:
-            source_id = spiketrain.annotations['source_id']
-            source_index = spiketrain.annotations['source_index']
+            print(spiketrain.annotations)
+            #print(dir(spiketrain))
+            source_id = get_source_id(spiketrain)
+            #source_index = spiketrain.annotations['source_index']
+            source_index = pop.id_to_index(source_id)
             print("Writing spike data for cell %s[%s] (gid: %i): %s "%(pop.label,source_index, source_id, spiketrain))
             for t in spiketrain:
                 ff.write('%s\t%f\n'%(source_index,t.magnitude/1000.))
+
         ff.close()
 
 
 sim.end()
 
 if '-gui' in sys.argv:
-    if simulator_name in ['neuron', 'nest', 'brian']:
+    if simulator_name in ['neuron', 'nest', 'brian2']:
         import matplotlib.pyplot as plt
         
         print("Plotting results of simulation in %s"%simulator_name)
