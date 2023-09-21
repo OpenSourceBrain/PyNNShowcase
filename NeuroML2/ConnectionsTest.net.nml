@@ -2,8 +2,8 @@
     <notes>
     This NeuroML 2 file has been generated from: 
         PyNN v0.10.1
-        libNeuroML v0.5.3
-        pyNeuroML v1.0.10
+        libNeuroML v0.5.5
+        pyNeuroML v1.1.1
     </notes>
     <IF_cond_alpha id="IF_cond_alpha_pop_pre" cm="1.0" i_offset="0.9" tau_syn_E="2.0" tau_syn_I="5.0" v_init="-65.0" tau_m="20.0" tau_refrac="5.0" v_reset="-65.0" v_rest="-65.0" v_thresh="-50.0" e_rev_E="0.0" e_rev_I="-70.0"/>
     <IF_cond_alpha id="IF_cond_alpha_pop_post" cm="1.0" i_offset="0.9" tau_syn_E="2.0" tau_syn_I="5.0" v_init="-65.0" tau_m="20.0" tau_refrac="5.0" v_reset="-65.0" v_rest="-65.0" v_thresh="-50.0" e_rev_E="0.0" e_rev_I="-70.0"/>
@@ -17,38 +17,38 @@
             <property tag="radius" value="5"/>
             <property tag="color" value="0 0.6 0"/>
             <instance id="0">
-                <location x="-70.265278481280276" y="-15.137172870395066" z="2.504757496981491"/>
+                <location x="-32.186643403808567" y="-17.354649054736583" z="-65.493481332544846"/>
             </instance>
             <instance id="1">
-                <location x="0.896110261641514" y="-69.364560549304727" z="71.654633070914599"/>
+                <location x="-67.354645297143236" y="-4.19796344220984" z="-43.49873410003169"/>
             </instance>
             <instance id="2">
-                <location x="-8.63946327112879" y="-58.505078738749702" z="48.108413536120366"/>
+                <location x="71.797570419985519" y="18.947079504991638" z="-12.907315815267673"/>
             </instance>
             <instance id="3">
-                <location x="-33.125000636274351" y="-42.203280732567428" z="-20.131832661098258"/>
+                <location x="-52.406762043828394" y="6.010609135001554" z="-58.236579579123649"/>
             </instance>
             <instance id="4">
-                <location x="9.410821864814789" y="-67.150951044248657" z="-5.539973054629277"/>
+                <location x="-84.522276311302463" y="-27.093766860654476" z="-28.20137345446372"/>
             </instance>
         </population>
         <population id="pop_post" component="IF_cond_alpha_pop_post" size="5" type="populationList">
             <property tag="radius" value="5"/>
             <property tag="color" value="0 0.2 0.6"/>
             <instance id="0">
-                <location x="-28.678926434693718" y="184.837404126174533" z="67.766118837628937"/>
+                <location x="-10.963933858486152" y="160.214056107236161" z="-17.681929175932854"/>
             </instance>
             <instance id="1">
-                <location x="10.594326616152161" y="283.075595791765863" z="-53.361320773272112"/>
+                <location x="-65.391507421071694" y="215.929509183693398" z="53.214475027961086"/>
             </instance>
             <instance id="2">
-                <location x="-40.595026343040686" y="184.199929560101282" z="85.56822054509729"/>
+                <location x="-25.558099064460361" y="219.63712563909769" z="-87.608059485643892"/>
             </instance>
             <instance id="3">
-                <location x="73.442669087700679" y="157.981140882509521" z="21.626005179957875"/>
+                <location x="57.458557554047054" y="140.98406076648115" z="-24.288796136764446"/>
             </instance>
             <instance id="4">
-                <location x="-68.040102348167693" y="233.599105418118029" z="-57.106869113278471"/>
+                <location x="78.618467098550227" y="180.149183458113185" z="-55.213241499240318"/>
             </instance>
         </population>
         <projection id="pop_pre__TO__pop_post" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__pop_pre__TO__pop_post">
