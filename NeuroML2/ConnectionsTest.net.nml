@@ -2,53 +2,53 @@
     <notes>
     This NeuroML 2 file has been generated from: 
         PyNN v0.10.1
-        libNeuroML v0.5.3
-        pyNeuroML v1.0.8
+        libNeuroML v0.5.5
+        pyNeuroML v1.1.1
     </notes>
-    <IF_cond_alpha id="IF_cond_alpha_pop_pre" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="5." v_reset="-65." v_rest="-65." v_thresh="-50." e_rev_E="0." e_rev_I="-70."/>
-    <IF_cond_alpha id="IF_cond_alpha_pop_post" cm="1." i_offset="0.9" tau_syn_E="2." tau_syn_I="5." v_init="-65." tau_m="20." tau_refrac="5." v_reset="-65." v_rest="-65." v_thresh="-50." e_rev_E="0." e_rev_I="-70."/>
-    <alphaCondSynapse id="syn__pop_pre__TO__pop_post" tau_syn="2." e_rev="0."/>
-    <alphaCondSynapse id="syn__AllToAllConnectorProj" tau_syn="2." e_rev="0."/>
-    <alphaCondSynapse id="syn__OneToOneConnector" tau_syn="2." e_rev="0."/>
-    <alphaCondSynapse id="syn__FixedProbabilityConnector" tau_syn="2." e_rev="0."/>
-    <alphaCondSynapse id="syn__AllToAllConnectorProjSelection" tau_syn="2." e_rev="0."/>
+    <IF_cond_alpha id="IF_cond_alpha_pop_pre" cm="1.0" i_offset="0.9" tau_syn_E="2.0" tau_syn_I="5.0" v_init="-65.0" tau_m="20.0" tau_refrac="5.0" v_reset="-65.0" v_rest="-65.0" v_thresh="-50.0" e_rev_E="0.0" e_rev_I="-70.0"/>
+    <IF_cond_alpha id="IF_cond_alpha_pop_post" cm="1.0" i_offset="0.9" tau_syn_E="2.0" tau_syn_I="5.0" v_init="-65.0" tau_m="20.0" tau_refrac="5.0" v_reset="-65.0" v_rest="-65.0" v_thresh="-50.0" e_rev_E="0.0" e_rev_I="-70.0"/>
+    <alphaCondSynapse id="syn__pop_pre__TO__pop_post" tau_syn="2.0" e_rev="0.0"/>
+    <alphaCondSynapse id="syn__AllToAllConnectorProj" tau_syn="2.0" e_rev="0.0"/>
+    <alphaCondSynapse id="syn__OneToOneConnector" tau_syn="2.0" e_rev="0.0"/>
+    <alphaCondSynapse id="syn__FixedProbabilityConnector" tau_syn="2.0" e_rev="0.0"/>
+    <alphaCondSynapse id="syn__AllToAllConnectorProjSelection" tau_syn="2.0" e_rev="0.0"/>
     <network id="ConnectionsTest">
         <population id="pop_pre" component="IF_cond_alpha_pop_pre" size="5" type="populationList">
             <property tag="radius" value="5"/>
             <property tag="color" value="0 0.6 0"/>
             <instance id="0">
-                <location x="5.541832845040129" y="59.921418584252393" z="20.857984592385105"/>
+                <location x="-32.186643403808567" y="-17.354649054736583" z="-65.493481332544846"/>
             </instance>
             <instance id="1">
-                <location x="34.466522868595085" y="87.638652592529724" z="-33.145933330040037"/>
+                <location x="-67.354645297143236" y="-4.19796344220984" z="-43.49873410003169"/>
             </instance>
             <instance id="2">
-                <location x="-65.704278939682226" y="-34.764594972583772" z="-62.279243529588157"/>
+                <location x="71.797570419985519" y="18.947079504991638" z="-12.907315815267673"/>
             </instance>
             <instance id="3">
-                <location x="-25.211843195842178" y="3.640852771338143" z="32.441587323651142"/>
+                <location x="-52.406762043828394" y="6.010609135001554" z="-58.236579579123649"/>
             </instance>
             <instance id="4">
-                <location x="-2.226433693613816" y="-6.999164118723655" z="56.311934654534902"/>
+                <location x="-84.522276311302463" y="-27.093766860654476" z="-28.20137345446372"/>
             </instance>
         </population>
         <population id="pop_post" component="IF_cond_alpha_pop_post" size="5" type="populationList">
             <property tag="radius" value="5"/>
             <property tag="color" value="0 0.2 0.6"/>
             <instance id="0">
-                <location x="-53.052248905203328" y="259.088479625842638" z="-24.729342611499305"/>
+                <location x="-10.963933858486152" y="160.214056107236161" z="-17.681929175932854"/>
             </instance>
             <instance id="1">
-                <location x="-5.605492121538203" y="210.161061349492314" z="54.437434010504695"/>
+                <location x="-65.391507421071694" y="215.929509183693398" z="53.214475027961086"/>
             </instance>
             <instance id="2">
-                <location x="4.660513826530521" y="186.333860539104307" z="-81.175402165055971"/>
+                <location x="-25.558099064460361" y="219.63712563909769" z="-87.608059485643892"/>
             </instance>
             <instance id="3">
-                <location x="61.944758456588779" y="195.847455277570702" z="59.736272625549326"/>
+                <location x="57.458557554047054" y="140.98406076648115" z="-24.288796136764446"/>
             </instance>
             <instance id="4">
-                <location x="9.177333646907693" y="181.683156874365778" z="-62.523285074325408"/>
+                <location x="78.618467098550227" y="180.149183458113185" z="-55.213241499240318"/>
             </instance>
         </population>
         <projection id="pop_pre__TO__pop_post" presynapticPopulation="pop_pre" postsynapticPopulation="pop_post" synapse="syn__pop_pre__TO__pop_post">

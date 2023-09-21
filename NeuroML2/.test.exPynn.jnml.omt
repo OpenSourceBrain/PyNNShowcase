@@ -14,7 +14,7 @@ experiments:
         spike detection: 
           method: threshold
           threshold: -55
-        tolerance: 0.000125
+        tolerance: 0.00012497396375755524
   EIF_cond_exp_isfa_ista:
     observables:
       spike times:
@@ -25,7 +25,7 @@ experiments:
         spike detection: 
           method: threshold
           threshold: -45
-        tolerance: 0.000429
+        tolerance: 0.0004288690111505525
   pop_post2:
     observables:
       spike times:
@@ -36,4 +36,4 @@ experiments:
         spike detection: 
           method: threshold
           threshold: -63.5
-        tolerance: 0.000375
+        tolerance: 0.0003740764986440312
