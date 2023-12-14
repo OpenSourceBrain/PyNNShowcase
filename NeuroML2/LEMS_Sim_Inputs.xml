@@ -1,12 +1,12 @@
 <Lems>
-    
+
     <!-- 
     This LEMS file has been generated from: 
         PyNN v0.10.1
-        libNeuroML v0.5.5
-        pyNeuroML v1.1.1
+        libNeuroML v0.5.8
+        pyNeuroML v1.1.10
      -->
-    
+
     <!-- Specify which component to run -->
     <Target component="Sim_Inputs"/>
 
@@ -14,33 +14,32 @@
     <Include file="Cells.xml"/>
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
-    
+
     <Include file="PyNN.xml"/>
     <Include file="Inputs.net.nml"/>
-   
+
     <Simulation id="Sim_Inputs" length="500.0ms" step="0.05ms" target="Inputs" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
-        
         <Display id="pop_pre_v" title="pop_pre v" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-70" ymax="10">
             <Line id="pop_pre v: cell 42" quantity="pop_pre/0/IF_cond_alpha_pop_pre/v" scale="1mV" color="#d54f33" timeScale="1ms"/>
             <Line id="pop_pre v: cell 43" quantity="pop_pre/1/IF_cond_alpha_pop_pre/v" scale="1mV" color="#0534e4" timeScale="1ms"/>
             <Line id="pop_pre v: cell 44" quantity="pop_pre/2/IF_cond_alpha_pop_pre/v" scale="1mV" color="#98e752" timeScale="1ms"/>
             <Line id="pop_pre v: cell 45" quantity="pop_pre/3/IF_cond_alpha_pop_pre/v" scale="1mV" color="#bca074" timeScale="1ms"/>
         </Display>
-        
+
         <OutputFile id="OF_pop_pre_v" fileName="pop_pre_v.dat">
-            <OutputColumn id="pop_pre_0_IF_cond_alpha_pop_pre_v" quantity="pop_pre/0/IF_cond_alpha_pop_pre/v"/> 
-            <OutputColumn id="pop_pre_1_IF_cond_alpha_pop_pre_v" quantity="pop_pre/1/IF_cond_alpha_pop_pre/v"/> 
-            <OutputColumn id="pop_pre_2_IF_cond_alpha_pop_pre_v" quantity="pop_pre/2/IF_cond_alpha_pop_pre/v"/> 
-            <OutputColumn id="pop_pre_3_IF_cond_alpha_pop_pre_v" quantity="pop_pre/3/IF_cond_alpha_pop_pre/v"/> 
+            <OutputColumn id="pop_pre_0_IF_cond_alpha_pop_pre_v" quantity="pop_pre/0/IF_cond_alpha_pop_pre/v"/>
+            <OutputColumn id="pop_pre_1_IF_cond_alpha_pop_pre_v" quantity="pop_pre/1/IF_cond_alpha_pop_pre/v"/>
+            <OutputColumn id="pop_pre_2_IF_cond_alpha_pop_pre_v" quantity="pop_pre/2/IF_cond_alpha_pop_pre/v"/>
+            <OutputColumn id="pop_pre_3_IF_cond_alpha_pop_pre_v" quantity="pop_pre/3/IF_cond_alpha_pop_pre/v"/>
         </OutputFile>
-        
+
         <EventOutputFile id="Spikes_file_pop_pre" fileName="pop_pre.spikes" format="TIME_ID">
-            <EventSelection id="0" select="pop_pre/0/IF_cond_alpha_pop_pre" eventPort="spike"/> 
-            <EventSelection id="1" select="pop_pre/1/IF_cond_alpha_pop_pre" eventPort="spike"/> 
-            <EventSelection id="2" select="pop_pre/2/IF_cond_alpha_pop_pre" eventPort="spike"/> 
-            <EventSelection id="3" select="pop_pre/3/IF_cond_alpha_pop_pre" eventPort="spike"/> 
+            <EventSelection id="0" select="pop_pre/0/IF_cond_alpha_pop_pre" eventPort="spike"/>
+            <EventSelection id="1" select="pop_pre/1/IF_cond_alpha_pop_pre" eventPort="spike"/>
+            <EventSelection id="2" select="pop_pre/2/IF_cond_alpha_pop_pre" eventPort="spike"/>
+            <EventSelection id="3" select="pop_pre/3/IF_cond_alpha_pop_pre" eventPort="spike"/>
         </EventOutputFile>
-        
+
     </Simulation>
 
 </Lems>
