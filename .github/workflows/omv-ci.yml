@@ -26,7 +26,7 @@ jobs:
         
     - name: Install OMV
       run: |
-        pip install git+https://github.com/OpenSourceBrain/osb-model-validation 
+        pip install git+https://github.com/OpenSourceBrain/osb-model-validation@test_pynn011
         
     - name: Install additional packages
       run: |
