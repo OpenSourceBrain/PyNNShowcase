@@ -1,9 +1,9 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.xsd" id="PyNN_NeuroML2_Export">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.1.xsd" id="PyNN_NeuroML2_Export">
     <notes>
     This NeuroML 2 file has been generated from: 
-        PyNN v0.10.1
-        libNeuroML v0.5.5
-        pyNeuroML v1.1.1
+        PyNN v0.11.0
+        libNeuroML v0.6.1
+        pyNeuroML v1.3.0
     </notes>
     <IF_curr_alpha id="IF_curr_alpha_pop_IF_curr_alpha" cm="1.0" i_offset="0.9" tau_syn_E="2.0" tau_syn_I="5.0" v_init="-65.0" tau_m="20.0" tau_refrac="10.0" v_reset="-62.0" v_rest="-65.0" v_thresh="-52.0"/>
     <IF_curr_exp id="IF_curr_exp_pop_IF_curr_exp" cm="1.0" i_offset="1.0" tau_syn_E="2.0" tau_syn_I="5.0" v_init="-65.0" tau_m="20.0" tau_refrac="8.0" v_reset="-70.0" v_rest="-65.0" v_thresh="-50.0"/>
