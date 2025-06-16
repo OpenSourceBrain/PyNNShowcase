@@ -43,6 +43,9 @@ jobs:
         export JNML_HOME=/home/runner/jnml/jNeuroMLJar
         export PATH=$JNML_HOME:$PATH
         omv install PyNN # required for regeneration...
+
+        pip install pynn==0.12.4  # Temp!! For testing latest PyNN
+
         omv install pyNeuroML # required for regeneration...
         omv install jNeuroML
         which jnml
