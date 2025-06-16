@@ -26,7 +26,7 @@ jobs:
         
     - name: Install OMV
       run: |
-        pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+        pip install git+https://github.com/OpenSourceBrain/osb-model-validation@test_pynn012
         
     - name: Install additional packages
       run: |
@@ -44,12 +44,15 @@ jobs:
         export PATH=$JNML_HOME:$PATH
         omv install PyNN # required for regeneration...
 
-        pip install pynn==0.12.4  # Temp!! For testing latest PyNN
+        #pip install pynn==0.12.4  # Temp!! For testing latest PyNN
 
         omv install pyNeuroML # required for regeneration...
         omv install jNeuroML
         which jnml
+
         ./regenerate.sh
+
+        omv all -V  
       
 
     - name: OMV final version info
