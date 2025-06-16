@@ -51,7 +51,14 @@ for pop in all_pops:
     data =  pop.get_data('v', gather=False)
     analogsignal = data.segments[0].analogsignals[0]
     name = analogsignal.name
-    source_ids = analogsignal.annotations['source_ids']
+
+    def get_source_ids_as(analogsignal):
+        if 'source_ids' in analogsignal.annotations:
+            return analogsignal.annotations['source_ids']
+        elif 'channel_ids' in analogsignal.annotations: # See https://github.com/NeuralEnsemble/PyNN/pull/762
+            return analogsignal.annotations['channel_ids']
+            
+    source_ids = get_source_ids_as(analogsignal)
     filename = "%s_%s.dat"%(pop.label,name)
     print('Saving data recorded for %s in pop %s, global ids: %s to %s'%(name, pop.label, source_ids, filename))
     times_vm_a = []
@@ -94,7 +101,7 @@ for pop in all_pops:
 sim.end()
 
 if '-gui' in sys.argv:
-    if simulator_name in ['neuron', 'nest', 'brian']:
+    if simulator_name in ['neuron', 'nest', 'brian2']:
         import matplotlib.pyplot as plt
         
         print("Plotting results of simulation in %s"%simulator_name)
