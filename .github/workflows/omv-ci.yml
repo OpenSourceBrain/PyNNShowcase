@@ -40,11 +40,9 @@ jobs:
         
     - name: Regenerate
       run: |
-        export JNML_HOME=/home/runner/jnml/jNeuroMLJar
-        export PATH=$JNML_HOME:$PATH
-        omv install PyNN # required for regeneration...
-        omv install pyNeuroML # required for regeneration...
-        omv install jNeuroML
+        omv install pyNeuroML # required for regeneration (installs jnml too)...
+        
+        which pynml
         which jnml
         ./regenerate.sh
       
