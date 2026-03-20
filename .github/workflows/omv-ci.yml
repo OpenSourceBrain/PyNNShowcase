@@ -33,6 +33,8 @@ jobs:
       
         pip install matplotlib "cython<3.1.0"  # let omv handle other deps...
 
+        pip list
+
         
     - name: Run OMV tests on engine ${{ matrix.engine }}
       run: |
