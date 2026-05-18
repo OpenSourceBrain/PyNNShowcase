@@ -100,11 +100,18 @@ else:
         elif 'channel_id' in spiketrain.annotations: # See https://github.com/NeuralEnsemble/PyNN/pull/762
             return spiketrain.annotations['channel_id']
 
+    def get_source_ids_as(analogsignal):
+        if 'source_ids' in analogsignal.annotations:
+            return analogsignal.annotations['source_ids']
+        elif 'channel_ids' in analogsignal.annotations: # See https://github.com/NeuralEnsemble/PyNN/pull/762
+            return analogsignal.annotations['channel_ids']
+            
+
     for pop in [pop_IF_curr_alpha, pop_IF_curr_exp, pop_IF_cond_exp, pop_IF_cond_alpha,pop_EIF_cond_exp_isfa_ista, pop_HH_cond_exp, pop_post1,pop_post2]:
         data =  pop.get_data('v', gather=False)
         analogsignal = data.segments[0].analogsignals[0]
         name = analogsignal.name
-        source_ids = analogsignal.annotations['source_ids']
+        source_ids = get_source_ids_as(analogsignal)
         print('Saving data recorded for %s in pop %s, global ids: %s'%(name, pop.label, source_ids))
         for i in range(len(source_ids)):
             glob_id = source_ids[i]
